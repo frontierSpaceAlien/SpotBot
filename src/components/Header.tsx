@@ -24,16 +24,6 @@ export default function Header({
   className,
   onLogoClick,
 }: HeaderProps) {
-  const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth > 768) setOpen(false)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
   return (
     <header style={styles.header} className={className}>
       <div style={styles.inner}>

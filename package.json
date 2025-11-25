@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@netlify/vite-plugin-tanstack-start": "^1.0.2",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.84.0",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.7.0",
     "@tanstack/react-router": "^1.132.0",
@@ -24,6 +26,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwindcss": "^4.0.6",
+    "vinxi": "^0.5.8",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
