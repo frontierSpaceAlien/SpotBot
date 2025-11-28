@@ -34,7 +34,7 @@ export const Route = createFileRoute('/')({ component: App })
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#121312] text-white">
+    <div className="min-h-[calc(100vh-114px)] ">
       <header className="max-w-5xl p-10 mx-auto">
         <div className="border border-gray-400 rounded p-6">
           <h1 className="text-4xl font-bold mb-4">

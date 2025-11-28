@@ -5,9 +5,5 @@ export const Route = createFileRoute('/dashboard')({
 })
 
 function RouteComponent() {
-  return (
-    <div className="min-h-screen bg-[#121312] text-white">
-      Da Dashboard Page
-    </div>
-  )
+  return <div className="min-h-[calc(100vh-114px)]">Da Dashboard Page</div>
 }

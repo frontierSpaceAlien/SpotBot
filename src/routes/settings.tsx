@@ -6,6 +6,8 @@ export const Route = createFileRoute('/settings')({
 
 function RouteComponent() {
   return (
-    <div className="min-h-screen bg-[#121312] text-white">Da Settings Page</div>
+    <div className="min-h-[calc(100vh-114px)] bg-[#121312] text-white">
+      Da Settings Page
+    </div>
   )
 }
