@@ -19,7 +19,6 @@ export default function Header({
   navItems = [
     { label: 'Home', href: '/' },
     { label: 'Dashboard', href: '/dashboard' },
-    { label: 'Settings', href: '/settings' },
   ],
   className,
   onLogoClick,

@@ -62,8 +62,13 @@ export default function NotFound() {
   const randomCharacter = arr[randomIndex]
 
   return (
-    <div className="min-h-[calc(100vh-114px)] flex items-center justify-center text-3xl flex-col">
-      <img className="w-128" src={randomCharacter} alt="404 Not Found" />
+    <div className="min-h-[calc(100vh-114px)] flex items-center justify-center text-3xl flex-col select-none">
+      <img
+        className="w-128"
+        src={randomCharacter}
+        alt="404 Not Found"
+        draggable={false}
+      />
       404 - Page Not Found
     </div>
   )
