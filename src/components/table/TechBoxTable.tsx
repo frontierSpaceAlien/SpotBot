@@ -3,10 +3,13 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import type { Combo } from '@/data/comboData'
-import { columns } from '@/components/table/ComboColumns'
 
-export default function TechBoxTable({ data }: { data: Array<Combo> }) {
+interface TechBoxTableProps {
+  data: Array<any>
+  columns: Array<any>
+}
+
+export default function TechBoxTable({ data, columns }: TechBoxTableProps) {
   const table = useReactTable({
     data,
     columns: columns,

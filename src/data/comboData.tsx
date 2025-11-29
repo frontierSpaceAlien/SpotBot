@@ -5,7 +5,7 @@ export type Combo = {
   notes: string
 }
 
-export const defaultData: Array<Combo> = [
+export const comboData: Array<Combo> = [
   {
     combo: 'PC 2HP, 5HP xx DRC, 2HP, 5HP xx SA3',
     damage: 24,

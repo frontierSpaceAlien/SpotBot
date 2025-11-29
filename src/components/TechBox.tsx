@@ -1,19 +1,29 @@
 import React from 'react'
 import AddIcon from '@mui/icons-material/Add'
-import type { Combo } from '@/data/comboData'
-import { defaultData } from '@/data/comboData'
 import TechTable from '@/components/table/TechBoxTable'
-import { AddTo } from '@/components/Modal'
+import { AddToCombo, AddToOki } from '@/components/Modal'
 
 interface TechBoxProps {
   boxTitle?: string
+  defaultData: Array<any>
+  columns: Array<any>
 }
 
-export default function TechBox({ boxTitle }: TechBoxProps) {
+export default function TechBox({
+  boxTitle,
+  defaultData,
+  columns,
+}: TechBoxProps) {
   const [data, setData] = React.useState(() => [...defaultData])
-
   function addNew() {
-    setData((prev) => [...prev, AddTo()])
+    const newComboData = AddToCombo()
+    const newOkiData = AddToOki()
+
+    if (boxTitle === 'Oki/Setplay') {
+      setData((prev) => [...prev, newOkiData])
+    } else {
+      setData((prev) => [...prev, newComboData])
+    }
   }
 
   return (
@@ -26,14 +36,13 @@ export default function TechBox({ boxTitle }: TechBoxProps) {
           <button
             className="cursor-pointer hover:scale-110 transition-transform"
             onClick={addNew}
-            aria-label="Add combo"
           >
             <AddIcon className="text-white" />
           </button>
         </div>
       </div>
       <div className="bg-[#161616] p-5 max-h-128 border border-gray-400 rounded overflow-y-auto border-t-0 rounded-t-none">
-        <TechTable data={data} />
+        <TechTable data={data} columns={columns} />
       </div>
     </div>
   )

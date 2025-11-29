@@ -1,9 +1,9 @@
 import { createColumnHelper } from '@tanstack/table-core'
 import type { Combo } from '@/data/comboData'
 
-export const columnHelper = createColumnHelper<Combo>()
+const columnHelper = createColumnHelper<Combo>()
 
-export const columns = [
+export const comboColumns = [
   columnHelper.accessor('combo', {
     header: () => <span>Combo</span>,
     cell: (info) => info.getValue(),

@@ -5,9 +5,10 @@ export type Oki = {
   meaty: string
   frameOnHit: number
   frameOnBlock: number
+  notes: string
 }
 
-export const defaultData: Array<Oki> = [
+export const okiData: Array<Oki> = [
   {
     screenPosition: 'Midscreen',
     ender: 'H Arrow',
@@ -15,6 +16,7 @@ export const defaultData: Array<Oki> = [
     meaty: 'stMP',
     frameOnHit: 10,
     frameOnBlock: 1,
+    notes: 'Weak option as opposed to other oki options',
   },
   {
     screenPosition: 'Corner',
@@ -23,6 +25,7 @@ export const defaultData: Array<Oki> = [
     meaty: 'stMP',
     frameOnHit: 5,
     frameOnBlock: 0,
+    notes: 'Good option forces mix',
   },
   {
     screenPosition: 'Midscreen',
@@ -31,5 +34,6 @@ export const defaultData: Array<Oki> = [
     meaty: 'crHP',
     frameOnHit: 0,
     frameOnBlock: -5,
+    notes: 'Really bad option',
   },
 ]
