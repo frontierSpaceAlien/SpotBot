@@ -3,17 +3,13 @@ import { useForm } from '@tanstack/react-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { signUp } from '@/services/auth.api'
 
-interface SignUpFormProps {
-  className?: string
-}
-
 interface SignUpFormData {
   email: string
   password: string
   confirmPassword: string
 }
 
-export default function SignUpForm({ className = '' }: SignUpFormProps) {
+export default function SignUpForm() {
   const queryClient = useQueryClient()
   const router = useRouter()
 
@@ -45,7 +41,7 @@ export default function SignUpForm({ className = '' }: SignUpFormProps) {
   })
 
   return (
-    <div className={`p-4 rounded ${className}`}>
+    <div className={`p-4 rounded`}>
       <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
       <form
         onSubmit={(e) => {

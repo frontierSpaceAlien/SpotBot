@@ -4,8 +4,8 @@ import Classic from '@/images/controlScheme/24px-SF6_Classic.png'
 
 export default function CharacterHeader() {
   return (
-    <div>
-      <header className="max-w-5xl p-10 mx-auto rounded flex flex-row items-center gap-3">
+    <div className="w-full">
+      <header className="max-w-5xl p-5 rounded flex flex-row items-center gap-3 ">
         <img
           className="w-10 rounded-full select-none border border-gray-300"
           src={Cammy}

@@ -23,7 +23,7 @@ export default function TechBoxTable({ data, columns }: TechBoxTableProps) {
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th className="text-left" key={header.id}>
+                <th className="text-left p-1" key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -39,7 +39,7 @@ export default function TechBoxTable({ data, columns }: TechBoxTableProps) {
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
+                <td key={cell.id} className="p-1">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}

@@ -5,7 +5,7 @@ const columnHelper = createColumnHelper<Oki>()
 
 export const okiColumns = [
   columnHelper.accessor('screenPosition', {
-    header: () => <span>Screen Position</span>,
+    header: () => <span>Screen Pos.</span>,
     cell: (info) => info.getValue(),
     footer: (info) => info.column.id,
   }),
