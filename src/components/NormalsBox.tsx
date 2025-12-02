@@ -11,7 +11,7 @@ export default function NormalsBox() {
         </div>
       </div>
       <div className="bg-[#161616] p-5 max-h-128 border border-gray-400 rounded overflow-y-auto border-t-0 rounded-t-none">
-        <TechBoxTable data={normalsData} columns={normalsColumns} />
+        {/* <TechBoxTable data={normalsData} columns={normalsColumns} /> */}
       </div>
     </div>
   )

@@ -1,18 +1,18 @@
 import CloseIcon from '@mui/icons-material/Close'
-import AddComboForm from './AddComboForm'
-import AddOkiForm from './AddOkiForm'
 
-interface ModalProps {
+interface RemoveModalProps {
   isOpen: boolean
   onClose: () => void
   boxTitle?: string
-  setNewData: (e: any) => void
+  triggerDelete: () => void
 }
 
-export function Modal({ isOpen, onClose, boxTitle, setNewData }: ModalProps) {
-  function getData(name: any) {
-    setNewData(name)
-  }
+export function RemoveModal({
+  isOpen,
+  onClose,
+  boxTitle,
+  triggerDelete,
+}: RemoveModalProps) {
   return (
     <div
       className={
@@ -31,7 +31,9 @@ export function Modal({ isOpen, onClose, boxTitle, setNewData }: ModalProps) {
           className="flex flex-row justify-between"
           onClick={(e) => e.stopPropagation()}
         >
-          <h1 className="text-2xl uppercase font-semibold">Add {boxTitle}</h1>
+          <h1 className="text-2xl uppercase font-semibold">
+            remove from {boxTitle} ?
+          </h1>
           <button
             className="cursor-pointer hover:scale-110 transition-transform"
             onClick={onClose}
@@ -44,16 +46,26 @@ export function Modal({ isOpen, onClose, boxTitle, setNewData }: ModalProps) {
         className="bg-[#161616] border border-gray-400 rounded p-6 max-w-7xl w-96  border-t-0 rounded-t-none"
         onClick={(e) => e.stopPropagation()}
       >
-        {boxTitle?.match('oki/setplay') ? (
-          <AddOkiForm />
-        ) : (
-          <AddComboForm
-            returnData={(e) => {
-              getData(e)
+        <p>Are you sure you want to remove this?</p>
+        <div className="flex justify-end gap-5 pt-2">
+          <button
+            type="button"
+            className="cursor-pointer p-5 border rounded w-full"
+            onClick={() => {
+              triggerDelete()
+              onClose()
             }}
-            close={onClose}
-          />
-        )}
+          >
+            Yes
+          </button>
+          <button
+            type="button"
+            className="bg-red-500/70 cursor-pointer p-5 border rounded w-full"
+            onClick={onClose}
+          >
+            No
+          </button>
+        </div>
       </div>
     </div>
   )

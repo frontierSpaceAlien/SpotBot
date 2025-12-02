@@ -16,7 +16,6 @@ export default function SignUpForm() {
   const signUpMutation = useMutation({
     mutationFn: (data: Parameters<typeof signUp>[0]) => signUp(data),
     onSuccess: () => {
-      console.log('Sign-up successful')
       queryClient.resetQueries()
       router.invalidate()
       form.reset()

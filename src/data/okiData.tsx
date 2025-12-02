@@ -1,4 +1,5 @@
 export type Oki = {
+  id: number
   screenPosition: string
   ender: string
   frameKill: string
@@ -10,6 +11,7 @@ export type Oki = {
 
 export const okiData: Array<Oki> = [
   {
+    id: 0,
     screenPosition: 'Midscreen',
     ender: 'H Arrow',
     frameKill: 'Dash',
@@ -19,6 +21,7 @@ export const okiData: Array<Oki> = [
     notes: 'Weak option as opposed to other oki options',
   },
   {
+    id: 1,
     screenPosition: 'Corner',
     ender: 'M Arrow',
     frameKill: 'walk',
@@ -28,6 +31,7 @@ export const okiData: Array<Oki> = [
     notes: 'Good option forces mix',
   },
   {
+    id: 2,
     screenPosition: 'Midscreen',
     ender: 'L Arrow',
     frameKill: 'Dash',
