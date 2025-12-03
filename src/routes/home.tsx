@@ -28,29 +28,38 @@ import Kimberly from '@/images/character_kimberly_l.png'
 import Ed from '@/images/character_ed_l.png'
 import Elena from '@/images/character_elena_l.png'
 import CharacterGrid from '@/components/CharacterGrid'
-import LoginForm from '@/components/SignInForm'
+import Logout from '@/components/Logout'
+import { fetchNewsForApp } from '@/data/steamApi'
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/home')({
   beforeLoad: async ({ context }) => {
-    if (context.authState.isAuthenticated) {
-      throw redirect({ to: '/home' })
+    if (!context.authState.isAuthenticated) {
+      throw redirect({ to: '/' })
     }
   },
-  component: App,
+  component: RouteComponent,
+  loader: async () => {
+    try {
+      const data = await fetchNewsForApp()
+      return data
+    } catch (error) {
+      console.error('Error fetching news: ', error)
+      return { error: 'failed to load news' }
+    }
+  },
 })
 
-function App() {
+function RouteComponent() {
+  const data = Route.useLoaderData()
+  console.log(data)
   return (
     <div className="min-h-[calc(100vh-114px)] ">
       <header className="max-w-5xl p-10 mx-auto">
         <div className="border border-[#363736] rounded p-6">
-          <h1 className="text-4xl font-bold mb-4">
-            Welcome to SF Tech Tracker!
-          </h1>
+          <h1 className="text-4xl font-bold mb-4">Welcome</h1>
           <p className="text-lg mb-1">
-            Keeps track of character tech for learning!
+            Select a character to start tracking your own tech
           </p>
-          <p className="font-bold">Login to track your tech.</p>
         </div>
         <div className="mt-6 flex flex-col md:flex-row">
           <CharacterGrid
@@ -85,8 +94,8 @@ function App() {
               { id: '27', src: Elena, name: 'Elena' },
             ]}
           />
-          <div className="mt-6 md:mt-0 md:ml-6 w-full md:w-96 border border-gray-400 rounded">
-            <LoginForm />
+          <div className="mt-6 md:mt-0 md:ml-6 w-full md:w-96 border border-[#363736] rounded">
+            <Logout />
           </div>
         </div>
       </header>

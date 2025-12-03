@@ -1,4 +1,8 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import {
+  HeadContent,
+  Scripts,
+  createRootRouteWithContext,
+} from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -6,8 +10,16 @@ import appCss from '../styles.css?url'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import NotFound from '@/components/NotFound'
+import { getUser } from '@/services/auth.api'
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<{
+  queryClient: QueryClient
+}>()({
+  beforeLoad: async ({ context }) => {
+    const authState = await getUser()
+
+    return { authState }
+  },
   head: () => ({
     meta: [
       {
@@ -29,7 +41,6 @@ export const Route = createRootRoute({
     ],
   }),
   notFoundComponent: () => <NotFound />,
-
   shellComponent: RootDocument,
 })
 
@@ -43,7 +54,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <HeadContent />
         </head>
         <Header />
-        <body className="bg-[#121312] text-white">
+        <body className="bg-[#121312] text-white ">
           {children}
           <TanStackDevtools
             config={{

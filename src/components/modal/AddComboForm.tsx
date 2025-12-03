@@ -96,6 +96,14 @@ export default function AddComboForm({ returnData, close }: AddComboFormProps) {
           )}
         </form.Field>
         <div className="flex gap-3 pt-5 justify-end">
+          <button
+            id="closeAddTech"
+            type="button"
+            className="bg-red-500/70 cursor-pointer p-5 border rounded w-full"
+            onClick={() => close()}
+          >
+            Cancel
+          </button>
           <form.Subscribe
             selector={(state) => [state.canSubmit, state.isSubmitting]}
             children={([canSubmit, isSubmitting]) => (
@@ -109,14 +117,6 @@ export default function AddComboForm({ returnData, close }: AddComboFormProps) {
               </button>
             )}
           />
-          <button
-            id="closeAddTech"
-            type="button"
-            className="bg-red-500/70 cursor-pointer p-5 border rounded w-full"
-            onClick={() => close()}
-          >
-            Cancel
-          </button>
         </div>
       </form>
     </div>

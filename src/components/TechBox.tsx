@@ -1,5 +1,6 @@
 import React from 'react'
 import AddIcon from '@mui/icons-material/Add'
+import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { RemoveModal } from './modal/RemoveModal'
 import TechBoxTable from '@/components/table/TechBoxTable'
@@ -22,7 +23,7 @@ export default function TechBox({
   const [selectedRow, setSelectedRow] = React.useState<boolean>(true)
   const [filteredData, setFilteredData] = React.useState([])
 
-  function rowSelect(e: any, f: any) {
+  function rowSelect(e: any) {
     if (e !== '-1') {
       setSelectedRow(false)
     } else {
@@ -53,6 +54,10 @@ export default function TechBox({
             >
               <AddIcon />
             </button>
+            {/* TODO add edit functionality */}
+            <button className="cursor-pointer hover:scale-110 transition-transform">
+              <EditIcon />
+            </button>
             <button
               className="cursor-pointer hover:scale-110 transition-transform"
               onClick={() => setOpenRemove(true)}
@@ -82,7 +87,7 @@ export default function TechBox({
           data={data}
           columns={columns}
           filterRow={(e: any) => setFilter(e)}
-          selectedRow={(e, f) => rowSelect(e, f)}
+          selectedRow={(e) => rowSelect(e)}
         />
       </div>
     </div>

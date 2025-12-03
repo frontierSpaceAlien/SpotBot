@@ -10,7 +10,7 @@ export const normalsColumns = [
     footer: (info) => info.column.id,
   }),
   columnHelper.accessor('startup', {
-    cell: (info) => <i>{info.getValue()}</i>,
+    cell: (info) => <span>{info.getValue()}</span>,
     header: () => <span>Startup</span>,
     footer: (info) => info.column.id,
   }),

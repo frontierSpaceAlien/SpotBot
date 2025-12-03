@@ -17,17 +17,15 @@ type HeaderProps = {
 export default function Header({
   title = 'SF Tech Tracker',
   navItems = [
-    { label: 'Home', href: '/' },
+    { label: 'Home', href: '/home' },
     { label: 'Dashboard', href: '/dashboard' },
   ],
   className,
-  onLogoClick,
 }: HeaderProps) {
   return (
     <header style={styles.header} className={className}>
       <div style={styles.inner}>
         <button
-          onClick={onLogoClick}
           aria-label="Home"
           style={styles.brand}
           title={typeof title === 'string' ? title : undefined}
@@ -77,7 +75,6 @@ const styles: Record<string, React.CSSProperties> = {
     background: 'transparent',
     border: 'none',
     padding: 0,
-    cursor: 'pointer',
     textDecoration: 'none',
     color: 'inherit',
     fontSize: 16,

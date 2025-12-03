@@ -10,7 +10,7 @@ export const comboColumns = [
     footer: (info) => info.column.id,
   }),
   columnHelper.accessor('damage', {
-    cell: (info) => <i>{info.getValue()}</i>,
+    cell: (info) => <span>{info.getValue()}</span>,
     header: () => <span>Damage</span>,
     footer: (info) => info.column.id,
   }),

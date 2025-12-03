@@ -10,7 +10,7 @@ export const okiColumns = [
     footer: (info) => info.column.id,
   }),
   columnHelper.accessor('ender', {
-    cell: (info) => <i>{info.getValue()}</i>,
+    cell: (info) => <span>{info.getValue()}</span>,
     header: () => <span>Ender</span>,
     footer: (info) => info.column.id,
   }),

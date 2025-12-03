@@ -50,6 +50,13 @@ export function RemoveModal({
         <div className="flex justify-end gap-5 pt-2">
           <button
             type="button"
+            className="bg-red-500/70 cursor-pointer p-5 border rounded w-full"
+            onClick={onClose}
+          >
+            No
+          </button>
+          <button
+            type="button"
             className="cursor-pointer p-5 border rounded w-full"
             onClick={() => {
               triggerDelete()
@@ -57,13 +64,6 @@ export function RemoveModal({
             }}
           >
             Yes
-          </button>
-          <button
-            type="button"
-            className="bg-red-500/70 cursor-pointer p-5 border rounded w-full"
-            onClick={onClose}
-          >
-            No
           </button>
         </div>
       </div>
