@@ -686,7 +686,7 @@ export const normalsDhalsim: Array<Normals> = [
   },
 ]
 
-export const normalEhonda: Array<Normals> = [
+export const normalsEhonda: Array<Normals> = [
   {
     normal: '5LP',
     startup: '5',
@@ -761,7 +761,7 @@ export const normalEhonda: Array<Normals> = [
   },
 ]
 
-export const normalGuile: Array<Normals> = [
+export const normalsGuile: Array<Normals> = [
   {
     normal: '5LP',
     startup: '5',
@@ -836,7 +836,7 @@ export const normalGuile: Array<Normals> = [
   },
 ]
 
-export const normalKen: Array<Normals> = [
+export const normalsKen: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -911,7 +911,7 @@ export const normalKen: Array<Normals> = [
   },
 ]
 
-export const normalMbison: Array<Normals> = [
+export const normalsMbison: Array<Normals> = [
   {
     normal: '5LP',
     startup: '5',
@@ -986,7 +986,7 @@ export const normalMbison: Array<Normals> = [
   },
 ]
 
-export const normalAkuma: Array<Normals> = [
+export const normalsAkuma: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -1061,7 +1061,7 @@ export const normalAkuma: Array<Normals> = [
   },
 ]
 
-export const normalRyu: Array<Normals> = [
+export const normalsRyu: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -1136,7 +1136,7 @@ export const normalRyu: Array<Normals> = [
   },
 ]
 
-export const normalLily: Array<Normals> = [
+export const normalsLily: Array<Normals> = [
   {
     normal: '5LP',
     startup: '5',
@@ -1211,7 +1211,7 @@ export const normalLily: Array<Normals> = [
   },
 ]
 
-export const normalManon: Array<Normals> = [
+export const normalsManon: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -1286,7 +1286,7 @@ export const normalManon: Array<Normals> = [
   },
 ]
 
-export const normalJuri: Array<Normals> = [
+export const normalsJuri: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -1433,7 +1433,7 @@ export const normalJuri: Array<Normals> = [
   },
 ]
 
-export const normalJp: Array<Normals> = [
+export const normalsJp: Array<Normals> = [
   {
     normal: '5LP',
     startup: '6',
@@ -1508,7 +1508,7 @@ export const normalJp: Array<Normals> = [
   },
 ]
 
-export const normalMarisa: Array<Normals> = [
+export const normalsMarisa: Array<Normals> = [
   {
     normal: '5LP',
     startup: '6',
@@ -1607,7 +1607,7 @@ export const normalMarisa: Array<Normals> = [
   },
 ]
 
-export const normalRashid: Array<Normals> = [
+export const normalsRashid: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -1682,7 +1682,7 @@ export const normalRashid: Array<Normals> = [
   },
 ]
 
-export const normalGief: Array<Normals> = [
+export const normalsGief: Array<Normals> = [
   {
     normal: '5LP',
     startup: '7(4)',
@@ -1763,7 +1763,7 @@ export const normalGief: Array<Normals> = [
   },
 ]
 
-export const normalSagat: Array<Normals> = [
+export const normalsSagat: Array<Normals> = [
   {
     normal: '5LP',
     startup: '5',
@@ -1838,7 +1838,7 @@ export const normalSagat: Array<Normals> = [
   },
 ]
 
-export const normalMai: Array<Normals> = [
+export const normalsMai: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -1913,7 +1913,7 @@ export const normalMai: Array<Normals> = [
   },
 ]
 
-export const normalTerry: Array<Normals> = [
+export const normalsTerry: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -1988,7 +1988,7 @@ export const normalTerry: Array<Normals> = [
   },
 ]
 
-export const normalKimberly: Array<Normals> = [
+export const normalsKimberly: Array<Normals> = [
   {
     normal: '5LP',
     startup: '5',
@@ -2063,7 +2063,7 @@ export const normalKimberly: Array<Normals> = [
   },
 ]
 
-export const normalEd: Array<Normals> = [
+export const normalsEd: Array<Normals> = [
   {
     normal: '5LP',
     startup: '4',
@@ -2138,7 +2138,7 @@ export const normalEd: Array<Normals> = [
   },
 ]
 
-export const normalElena: Array<Normals> = [
+export const normalsElena: Array<Normals> = [
   {
     normal: '5LP',
     startup: '5',

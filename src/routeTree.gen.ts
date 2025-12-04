@@ -13,7 +13,33 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CharacterZangiefRouteImport } from './routes/character/zangief'
+import { Route as CharacterTerryRouteImport } from './routes/character/terry'
+import { Route as CharacterSagatRouteImport } from './routes/character/sagat'
+import { Route as CharacterRyuRouteImport } from './routes/character/ryu'
+import { Route as CharacterRashidRouteImport } from './routes/character/rashid'
+import { Route as CharacterMbisonRouteImport } from './routes/character/mbison'
+import { Route as CharacterMarisaRouteImport } from './routes/character/marisa'
+import { Route as CharacterManonRouteImport } from './routes/character/manon'
+import { Route as CharacterMaiRouteImport } from './routes/character/mai'
+import { Route as CharacterLukeRouteImport } from './routes/character/luke'
+import { Route as CharacterLilyRouteImport } from './routes/character/lily'
+import { Route as CharacterKimberlyRouteImport } from './routes/character/kimberly'
+import { Route as CharacterKenRouteImport } from './routes/character/ken'
+import { Route as CharacterJuriRouteImport } from './routes/character/juri'
+import { Route as CharacterJpRouteImport } from './routes/character/jp'
+import { Route as CharacterJamieRouteImport } from './routes/character/jamie'
+import { Route as CharacterGuileRouteImport } from './routes/character/guile'
+import { Route as CharacterElenaRouteImport } from './routes/character/elena'
+import { Route as CharacterEhondaRouteImport } from './routes/character/ehonda'
+import { Route as CharacterEdRouteImport } from './routes/character/ed'
+import { Route as CharacterDhalsimRouteImport } from './routes/character/dhalsim'
+import { Route as CharacterDeejayRouteImport } from './routes/character/deejay'
+import { Route as CharacterCviperRouteImport } from './routes/character/cviper'
+import { Route as CharacterChunliRouteImport } from './routes/character/chunli'
 import { Route as CharacterCammyRouteImport } from './routes/character/cammy'
+import { Route as CharacterBlankaRouteImport } from './routes/character/blanka'
+import { Route as CharacterAkumaRouteImport } from './routes/character/akuma'
 import { Route as CharacterAkiRouteImport } from './routes/character/aki'
 
 const SignupRoute = SignupRouteImport.update({
@@ -36,9 +62,139 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CharacterZangiefRoute = CharacterZangiefRouteImport.update({
+  id: '/character/zangief',
+  path: '/character/zangief',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterTerryRoute = CharacterTerryRouteImport.update({
+  id: '/character/terry',
+  path: '/character/terry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterSagatRoute = CharacterSagatRouteImport.update({
+  id: '/character/sagat',
+  path: '/character/sagat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterRyuRoute = CharacterRyuRouteImport.update({
+  id: '/character/ryu',
+  path: '/character/ryu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterRashidRoute = CharacterRashidRouteImport.update({
+  id: '/character/rashid',
+  path: '/character/rashid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterMbisonRoute = CharacterMbisonRouteImport.update({
+  id: '/character/mbison',
+  path: '/character/mbison',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterMarisaRoute = CharacterMarisaRouteImport.update({
+  id: '/character/marisa',
+  path: '/character/marisa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterManonRoute = CharacterManonRouteImport.update({
+  id: '/character/manon',
+  path: '/character/manon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterMaiRoute = CharacterMaiRouteImport.update({
+  id: '/character/mai',
+  path: '/character/mai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterLukeRoute = CharacterLukeRouteImport.update({
+  id: '/character/luke',
+  path: '/character/luke',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterLilyRoute = CharacterLilyRouteImport.update({
+  id: '/character/lily',
+  path: '/character/lily',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterKimberlyRoute = CharacterKimberlyRouteImport.update({
+  id: '/character/kimberly',
+  path: '/character/kimberly',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterKenRoute = CharacterKenRouteImport.update({
+  id: '/character/ken',
+  path: '/character/ken',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterJuriRoute = CharacterJuriRouteImport.update({
+  id: '/character/juri',
+  path: '/character/juri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterJpRoute = CharacterJpRouteImport.update({
+  id: '/character/jp',
+  path: '/character/jp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterJamieRoute = CharacterJamieRouteImport.update({
+  id: '/character/jamie',
+  path: '/character/jamie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterGuileRoute = CharacterGuileRouteImport.update({
+  id: '/character/guile',
+  path: '/character/guile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterElenaRoute = CharacterElenaRouteImport.update({
+  id: '/character/elena',
+  path: '/character/elena',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterEhondaRoute = CharacterEhondaRouteImport.update({
+  id: '/character/ehonda',
+  path: '/character/ehonda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterEdRoute = CharacterEdRouteImport.update({
+  id: '/character/ed',
+  path: '/character/ed',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterDhalsimRoute = CharacterDhalsimRouteImport.update({
+  id: '/character/dhalsim',
+  path: '/character/dhalsim',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterDeejayRoute = CharacterDeejayRouteImport.update({
+  id: '/character/deejay',
+  path: '/character/deejay',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterCviperRoute = CharacterCviperRouteImport.update({
+  id: '/character/cviper',
+  path: '/character/cviper',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterChunliRoute = CharacterChunliRouteImport.update({
+  id: '/character/chunli',
+  path: '/character/chunli',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CharacterCammyRoute = CharacterCammyRouteImport.update({
   id: '/character/cammy',
   path: '/character/cammy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterBlankaRoute = CharacterBlankaRouteImport.update({
+  id: '/character/blanka',
+  path: '/character/blanka',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterAkumaRoute = CharacterAkumaRouteImport.update({
+  id: '/character/akuma',
+  path: '/character/akuma',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CharacterAkiRoute = CharacterAkiRouteImport.update({
@@ -53,7 +209,33 @@ export interface FileRoutesByFullPath {
   '/home': typeof HomeRoute
   '/signup': typeof SignupRoute
   '/character/aki': typeof CharacterAkiRoute
+  '/character/akuma': typeof CharacterAkumaRoute
+  '/character/blanka': typeof CharacterBlankaRoute
   '/character/cammy': typeof CharacterCammyRoute
+  '/character/chunli': typeof CharacterChunliRoute
+  '/character/cviper': typeof CharacterCviperRoute
+  '/character/deejay': typeof CharacterDeejayRoute
+  '/character/dhalsim': typeof CharacterDhalsimRoute
+  '/character/ed': typeof CharacterEdRoute
+  '/character/ehonda': typeof CharacterEhondaRoute
+  '/character/elena': typeof CharacterElenaRoute
+  '/character/guile': typeof CharacterGuileRoute
+  '/character/jamie': typeof CharacterJamieRoute
+  '/character/jp': typeof CharacterJpRoute
+  '/character/juri': typeof CharacterJuriRoute
+  '/character/ken': typeof CharacterKenRoute
+  '/character/kimberly': typeof CharacterKimberlyRoute
+  '/character/lily': typeof CharacterLilyRoute
+  '/character/luke': typeof CharacterLukeRoute
+  '/character/mai': typeof CharacterMaiRoute
+  '/character/manon': typeof CharacterManonRoute
+  '/character/marisa': typeof CharacterMarisaRoute
+  '/character/mbison': typeof CharacterMbisonRoute
+  '/character/rashid': typeof CharacterRashidRoute
+  '/character/ryu': typeof CharacterRyuRoute
+  '/character/sagat': typeof CharacterSagatRoute
+  '/character/terry': typeof CharacterTerryRoute
+  '/character/zangief': typeof CharacterZangiefRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +243,33 @@ export interface FileRoutesByTo {
   '/home': typeof HomeRoute
   '/signup': typeof SignupRoute
   '/character/aki': typeof CharacterAkiRoute
+  '/character/akuma': typeof CharacterAkumaRoute
+  '/character/blanka': typeof CharacterBlankaRoute
   '/character/cammy': typeof CharacterCammyRoute
+  '/character/chunli': typeof CharacterChunliRoute
+  '/character/cviper': typeof CharacterCviperRoute
+  '/character/deejay': typeof CharacterDeejayRoute
+  '/character/dhalsim': typeof CharacterDhalsimRoute
+  '/character/ed': typeof CharacterEdRoute
+  '/character/ehonda': typeof CharacterEhondaRoute
+  '/character/elena': typeof CharacterElenaRoute
+  '/character/guile': typeof CharacterGuileRoute
+  '/character/jamie': typeof CharacterJamieRoute
+  '/character/jp': typeof CharacterJpRoute
+  '/character/juri': typeof CharacterJuriRoute
+  '/character/ken': typeof CharacterKenRoute
+  '/character/kimberly': typeof CharacterKimberlyRoute
+  '/character/lily': typeof CharacterLilyRoute
+  '/character/luke': typeof CharacterLukeRoute
+  '/character/mai': typeof CharacterMaiRoute
+  '/character/manon': typeof CharacterManonRoute
+  '/character/marisa': typeof CharacterMarisaRoute
+  '/character/mbison': typeof CharacterMbisonRoute
+  '/character/rashid': typeof CharacterRashidRoute
+  '/character/ryu': typeof CharacterRyuRoute
+  '/character/sagat': typeof CharacterSagatRoute
+  '/character/terry': typeof CharacterTerryRoute
+  '/character/zangief': typeof CharacterZangiefRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,7 +278,33 @@ export interface FileRoutesById {
   '/home': typeof HomeRoute
   '/signup': typeof SignupRoute
   '/character/aki': typeof CharacterAkiRoute
+  '/character/akuma': typeof CharacterAkumaRoute
+  '/character/blanka': typeof CharacterBlankaRoute
   '/character/cammy': typeof CharacterCammyRoute
+  '/character/chunli': typeof CharacterChunliRoute
+  '/character/cviper': typeof CharacterCviperRoute
+  '/character/deejay': typeof CharacterDeejayRoute
+  '/character/dhalsim': typeof CharacterDhalsimRoute
+  '/character/ed': typeof CharacterEdRoute
+  '/character/ehonda': typeof CharacterEhondaRoute
+  '/character/elena': typeof CharacterElenaRoute
+  '/character/guile': typeof CharacterGuileRoute
+  '/character/jamie': typeof CharacterJamieRoute
+  '/character/jp': typeof CharacterJpRoute
+  '/character/juri': typeof CharacterJuriRoute
+  '/character/ken': typeof CharacterKenRoute
+  '/character/kimberly': typeof CharacterKimberlyRoute
+  '/character/lily': typeof CharacterLilyRoute
+  '/character/luke': typeof CharacterLukeRoute
+  '/character/mai': typeof CharacterMaiRoute
+  '/character/manon': typeof CharacterManonRoute
+  '/character/marisa': typeof CharacterMarisaRoute
+  '/character/mbison': typeof CharacterMbisonRoute
+  '/character/rashid': typeof CharacterRashidRoute
+  '/character/ryu': typeof CharacterRyuRoute
+  '/character/sagat': typeof CharacterSagatRoute
+  '/character/terry': typeof CharacterTerryRoute
+  '/character/zangief': typeof CharacterZangiefRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -80,7 +314,33 @@ export interface FileRouteTypes {
     | '/home'
     | '/signup'
     | '/character/aki'
+    | '/character/akuma'
+    | '/character/blanka'
     | '/character/cammy'
+    | '/character/chunli'
+    | '/character/cviper'
+    | '/character/deejay'
+    | '/character/dhalsim'
+    | '/character/ed'
+    | '/character/ehonda'
+    | '/character/elena'
+    | '/character/guile'
+    | '/character/jamie'
+    | '/character/jp'
+    | '/character/juri'
+    | '/character/ken'
+    | '/character/kimberly'
+    | '/character/lily'
+    | '/character/luke'
+    | '/character/mai'
+    | '/character/manon'
+    | '/character/marisa'
+    | '/character/mbison'
+    | '/character/rashid'
+    | '/character/ryu'
+    | '/character/sagat'
+    | '/character/terry'
+    | '/character/zangief'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -88,7 +348,33 @@ export interface FileRouteTypes {
     | '/home'
     | '/signup'
     | '/character/aki'
+    | '/character/akuma'
+    | '/character/blanka'
     | '/character/cammy'
+    | '/character/chunli'
+    | '/character/cviper'
+    | '/character/deejay'
+    | '/character/dhalsim'
+    | '/character/ed'
+    | '/character/ehonda'
+    | '/character/elena'
+    | '/character/guile'
+    | '/character/jamie'
+    | '/character/jp'
+    | '/character/juri'
+    | '/character/ken'
+    | '/character/kimberly'
+    | '/character/lily'
+    | '/character/luke'
+    | '/character/mai'
+    | '/character/manon'
+    | '/character/marisa'
+    | '/character/mbison'
+    | '/character/rashid'
+    | '/character/ryu'
+    | '/character/sagat'
+    | '/character/terry'
+    | '/character/zangief'
   id:
     | '__root__'
     | '/'
@@ -96,7 +382,33 @@ export interface FileRouteTypes {
     | '/home'
     | '/signup'
     | '/character/aki'
+    | '/character/akuma'
+    | '/character/blanka'
     | '/character/cammy'
+    | '/character/chunli'
+    | '/character/cviper'
+    | '/character/deejay'
+    | '/character/dhalsim'
+    | '/character/ed'
+    | '/character/ehonda'
+    | '/character/elena'
+    | '/character/guile'
+    | '/character/jamie'
+    | '/character/jp'
+    | '/character/juri'
+    | '/character/ken'
+    | '/character/kimberly'
+    | '/character/lily'
+    | '/character/luke'
+    | '/character/mai'
+    | '/character/manon'
+    | '/character/marisa'
+    | '/character/mbison'
+    | '/character/rashid'
+    | '/character/ryu'
+    | '/character/sagat'
+    | '/character/terry'
+    | '/character/zangief'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -105,7 +417,33 @@ export interface RootRouteChildren {
   HomeRoute: typeof HomeRoute
   SignupRoute: typeof SignupRoute
   CharacterAkiRoute: typeof CharacterAkiRoute
+  CharacterAkumaRoute: typeof CharacterAkumaRoute
+  CharacterBlankaRoute: typeof CharacterBlankaRoute
   CharacterCammyRoute: typeof CharacterCammyRoute
+  CharacterChunliRoute: typeof CharacterChunliRoute
+  CharacterCviperRoute: typeof CharacterCviperRoute
+  CharacterDeejayRoute: typeof CharacterDeejayRoute
+  CharacterDhalsimRoute: typeof CharacterDhalsimRoute
+  CharacterEdRoute: typeof CharacterEdRoute
+  CharacterEhondaRoute: typeof CharacterEhondaRoute
+  CharacterElenaRoute: typeof CharacterElenaRoute
+  CharacterGuileRoute: typeof CharacterGuileRoute
+  CharacterJamieRoute: typeof CharacterJamieRoute
+  CharacterJpRoute: typeof CharacterJpRoute
+  CharacterJuriRoute: typeof CharacterJuriRoute
+  CharacterKenRoute: typeof CharacterKenRoute
+  CharacterKimberlyRoute: typeof CharacterKimberlyRoute
+  CharacterLilyRoute: typeof CharacterLilyRoute
+  CharacterLukeRoute: typeof CharacterLukeRoute
+  CharacterMaiRoute: typeof CharacterMaiRoute
+  CharacterManonRoute: typeof CharacterManonRoute
+  CharacterMarisaRoute: typeof CharacterMarisaRoute
+  CharacterMbisonRoute: typeof CharacterMbisonRoute
+  CharacterRashidRoute: typeof CharacterRashidRoute
+  CharacterRyuRoute: typeof CharacterRyuRoute
+  CharacterSagatRoute: typeof CharacterSagatRoute
+  CharacterTerryRoute: typeof CharacterTerryRoute
+  CharacterZangiefRoute: typeof CharacterZangiefRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -138,11 +476,193 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/character/zangief': {
+      id: '/character/zangief'
+      path: '/character/zangief'
+      fullPath: '/character/zangief'
+      preLoaderRoute: typeof CharacterZangiefRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/terry': {
+      id: '/character/terry'
+      path: '/character/terry'
+      fullPath: '/character/terry'
+      preLoaderRoute: typeof CharacterTerryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/sagat': {
+      id: '/character/sagat'
+      path: '/character/sagat'
+      fullPath: '/character/sagat'
+      preLoaderRoute: typeof CharacterSagatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/ryu': {
+      id: '/character/ryu'
+      path: '/character/ryu'
+      fullPath: '/character/ryu'
+      preLoaderRoute: typeof CharacterRyuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/rashid': {
+      id: '/character/rashid'
+      path: '/character/rashid'
+      fullPath: '/character/rashid'
+      preLoaderRoute: typeof CharacterRashidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/mbison': {
+      id: '/character/mbison'
+      path: '/character/mbison'
+      fullPath: '/character/mbison'
+      preLoaderRoute: typeof CharacterMbisonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/marisa': {
+      id: '/character/marisa'
+      path: '/character/marisa'
+      fullPath: '/character/marisa'
+      preLoaderRoute: typeof CharacterMarisaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/manon': {
+      id: '/character/manon'
+      path: '/character/manon'
+      fullPath: '/character/manon'
+      preLoaderRoute: typeof CharacterManonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/mai': {
+      id: '/character/mai'
+      path: '/character/mai'
+      fullPath: '/character/mai'
+      preLoaderRoute: typeof CharacterMaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/luke': {
+      id: '/character/luke'
+      path: '/character/luke'
+      fullPath: '/character/luke'
+      preLoaderRoute: typeof CharacterLukeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/lily': {
+      id: '/character/lily'
+      path: '/character/lily'
+      fullPath: '/character/lily'
+      preLoaderRoute: typeof CharacterLilyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/kimberly': {
+      id: '/character/kimberly'
+      path: '/character/kimberly'
+      fullPath: '/character/kimberly'
+      preLoaderRoute: typeof CharacterKimberlyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/ken': {
+      id: '/character/ken'
+      path: '/character/ken'
+      fullPath: '/character/ken'
+      preLoaderRoute: typeof CharacterKenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/juri': {
+      id: '/character/juri'
+      path: '/character/juri'
+      fullPath: '/character/juri'
+      preLoaderRoute: typeof CharacterJuriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/jp': {
+      id: '/character/jp'
+      path: '/character/jp'
+      fullPath: '/character/jp'
+      preLoaderRoute: typeof CharacterJpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/jamie': {
+      id: '/character/jamie'
+      path: '/character/jamie'
+      fullPath: '/character/jamie'
+      preLoaderRoute: typeof CharacterJamieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/guile': {
+      id: '/character/guile'
+      path: '/character/guile'
+      fullPath: '/character/guile'
+      preLoaderRoute: typeof CharacterGuileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/elena': {
+      id: '/character/elena'
+      path: '/character/elena'
+      fullPath: '/character/elena'
+      preLoaderRoute: typeof CharacterElenaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/ehonda': {
+      id: '/character/ehonda'
+      path: '/character/ehonda'
+      fullPath: '/character/ehonda'
+      preLoaderRoute: typeof CharacterEhondaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/ed': {
+      id: '/character/ed'
+      path: '/character/ed'
+      fullPath: '/character/ed'
+      preLoaderRoute: typeof CharacterEdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/dhalsim': {
+      id: '/character/dhalsim'
+      path: '/character/dhalsim'
+      fullPath: '/character/dhalsim'
+      preLoaderRoute: typeof CharacterDhalsimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/deejay': {
+      id: '/character/deejay'
+      path: '/character/deejay'
+      fullPath: '/character/deejay'
+      preLoaderRoute: typeof CharacterDeejayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/cviper': {
+      id: '/character/cviper'
+      path: '/character/cviper'
+      fullPath: '/character/cviper'
+      preLoaderRoute: typeof CharacterCviperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/chunli': {
+      id: '/character/chunli'
+      path: '/character/chunli'
+      fullPath: '/character/chunli'
+      preLoaderRoute: typeof CharacterChunliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/character/cammy': {
       id: '/character/cammy'
       path: '/character/cammy'
       fullPath: '/character/cammy'
       preLoaderRoute: typeof CharacterCammyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/blanka': {
+      id: '/character/blanka'
+      path: '/character/blanka'
+      fullPath: '/character/blanka'
+      preLoaderRoute: typeof CharacterBlankaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/akuma': {
+      id: '/character/akuma'
+      path: '/character/akuma'
+      fullPath: '/character/akuma'
+      preLoaderRoute: typeof CharacterAkumaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/character/aki': {
@@ -161,7 +681,33 @@ const rootRouteChildren: RootRouteChildren = {
   HomeRoute: HomeRoute,
   SignupRoute: SignupRoute,
   CharacterAkiRoute: CharacterAkiRoute,
+  CharacterAkumaRoute: CharacterAkumaRoute,
+  CharacterBlankaRoute: CharacterBlankaRoute,
   CharacterCammyRoute: CharacterCammyRoute,
+  CharacterChunliRoute: CharacterChunliRoute,
+  CharacterCviperRoute: CharacterCviperRoute,
+  CharacterDeejayRoute: CharacterDeejayRoute,
+  CharacterDhalsimRoute: CharacterDhalsimRoute,
+  CharacterEdRoute: CharacterEdRoute,
+  CharacterEhondaRoute: CharacterEhondaRoute,
+  CharacterElenaRoute: CharacterElenaRoute,
+  CharacterGuileRoute: CharacterGuileRoute,
+  CharacterJamieRoute: CharacterJamieRoute,
+  CharacterJpRoute: CharacterJpRoute,
+  CharacterJuriRoute: CharacterJuriRoute,
+  CharacterKenRoute: CharacterKenRoute,
+  CharacterKimberlyRoute: CharacterKimberlyRoute,
+  CharacterLilyRoute: CharacterLilyRoute,
+  CharacterLukeRoute: CharacterLukeRoute,
+  CharacterMaiRoute: CharacterMaiRoute,
+  CharacterManonRoute: CharacterManonRoute,
+  CharacterMarisaRoute: CharacterMarisaRoute,
+  CharacterMbisonRoute: CharacterMbisonRoute,
+  CharacterRashidRoute: CharacterRashidRoute,
+  CharacterRyuRoute: CharacterRyuRoute,
+  CharacterSagatRoute: CharacterSagatRoute,
+  CharacterTerryRoute: CharacterTerryRoute,
+  CharacterZangiefRoute: CharacterZangiefRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

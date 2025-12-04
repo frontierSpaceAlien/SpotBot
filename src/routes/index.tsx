@@ -85,7 +85,7 @@ function App() {
               { id: '27', src: Elena, name: 'Elena' },
             ]}
           />
-          <div className="mt-6 md:mt-0 md:ml-6 w-full md:w-96 border border-gray-400 rounded">
+          <div className="mt-6 md:mt-0 md:ml-6 w-full md:w-96 border border-[#363736] rounded">
             <LoginForm />
           </div>
         </div>
