@@ -11,9 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as HomeRouteImport } from './routes/home'
-import { Route as DashboardcopyRouteImport } from './routes/dashboard copy'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CharacterCammyRouteImport } from './routes/character/cammy'
+import { Route as CharacterAkiRouteImport } from './routes/character/aki'
 
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
@@ -23,11 +24,6 @@ const SignupRoute = SignupRouteImport.update({
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardcopyRoute = DashboardcopyRouteImport.update({
-  id: '/dashboard copy',
-  path: '/dashboard copy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -40,43 +36,76 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CharacterCammyRoute = CharacterCammyRouteImport.update({
+  id: '/character/cammy',
+  path: '/character/cammy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterAkiRoute = CharacterAkiRouteImport.update({
+  id: '/character/aki',
+  path: '/character/aki',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
-  '/dashboard copy': typeof DashboardcopyRoute
   '/home': typeof HomeRoute
   '/signup': typeof SignupRoute
+  '/character/aki': typeof CharacterAkiRoute
+  '/character/cammy': typeof CharacterCammyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
-  '/dashboard copy': typeof DashboardcopyRoute
   '/home': typeof HomeRoute
   '/signup': typeof SignupRoute
+  '/character/aki': typeof CharacterAkiRoute
+  '/character/cammy': typeof CharacterCammyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
-  '/dashboard copy': typeof DashboardcopyRoute
   '/home': typeof HomeRoute
   '/signup': typeof SignupRoute
+  '/character/aki': typeof CharacterAkiRoute
+  '/character/cammy': typeof CharacterCammyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/dashboard copy' | '/home' | '/signup'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/home'
+    | '/signup'
+    | '/character/aki'
+    | '/character/cammy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/dashboard copy' | '/home' | '/signup'
-  id: '__root__' | '/' | '/dashboard' | '/dashboard copy' | '/home' | '/signup'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/home'
+    | '/signup'
+    | '/character/aki'
+    | '/character/cammy'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/home'
+    | '/signup'
+    | '/character/aki'
+    | '/character/cammy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
-  DashboardcopyRoute: typeof DashboardcopyRoute
   HomeRoute: typeof HomeRoute
   SignupRoute: typeof SignupRoute
+  CharacterAkiRoute: typeof CharacterAkiRoute
+  CharacterCammyRoute: typeof CharacterCammyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -95,13 +124,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard copy': {
-      id: '/dashboard copy'
-      path: '/dashboard copy'
-      fullPath: '/dashboard copy'
-      preLoaderRoute: typeof DashboardcopyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -116,15 +138,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/character/cammy': {
+      id: '/character/cammy'
+      path: '/character/cammy'
+      fullPath: '/character/cammy'
+      preLoaderRoute: typeof CharacterCammyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character/aki': {
+      id: '/character/aki'
+      path: '/character/aki'
+      fullPath: '/character/aki'
+      preLoaderRoute: typeof CharacterAkiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
-  DashboardcopyRoute: DashboardcopyRoute,
   HomeRoute: HomeRoute,
   SignupRoute: SignupRoute,
+  CharacterAkiRoute: CharacterAkiRoute,
+  CharacterCammyRoute: CharacterCammyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

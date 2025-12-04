@@ -1,4 +1,3 @@
-import { createFileRoute, redirect } from '@tanstack/react-router'
 import CharacterHeader from '@/components/CharacterHeader'
 import TechBox from '@/components/TechBox'
 import { comboData } from '@/data/comboData'
@@ -7,19 +6,20 @@ import { comboColumns } from '@/components/table/ComboColumns'
 import { okiColumns } from '@/components/table/OkiColumns'
 import NormalsBox from '@/components/NormalsBox'
 
-export const Route = createFileRoute('/dashboard copy')({
-  component: RouteComponent,
-  beforeLoad: async ({ context }) => {
-    if (!context.authState.isAuthenticated) {
-      throw redirect({ to: '/' })
-    }
-  },
-})
+interface CharacterContentProps {
+  normals: Array<any>
+  headerImg: any
+  character: string
+}
 
-function RouteComponent() {
+export default function CharacterContent({
+  normals,
+  headerImg,
+  character,
+}: CharacterContentProps) {
   return (
     <div className="min-h-[calc(100vh-114px)] p-5 space-y-5 mx-auto max-w-7xl max-2xl:max-w-none max-2xl:mx-0">
-      <CharacterHeader />
+      <CharacterHeader image={headerImg} character={character} />
       <div className="flex flex-col lg:flex-row gap-5">
         <div className="flex flex-col gap-5">
           <TechBox
@@ -34,7 +34,7 @@ function RouteComponent() {
           />
         </div>
         <div className="w-full md:flex-1">
-          <NormalsBox />
+          <NormalsBox character={normals} />
         </div>
       </div>
     </div>
