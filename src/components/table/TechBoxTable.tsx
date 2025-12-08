@@ -10,6 +10,7 @@ interface TechBoxTableProps {
   columns: Array<any>
   filterRow: (e: any) => void
   selectedRow: (e: any) => void
+  getSelectedRow: (e: any) => void
 }
 
 export default function TechBoxTable({
@@ -17,6 +18,7 @@ export default function TechBoxTable({
   columns,
   filterRow,
   selectedRow,
+  getSelectedRow,
 }: TechBoxTableProps) {
   const [expandedRow, setExpandedRow] = useState<string | null>(null)
   const tableIdRef = useRef(`table-${Math.random().toString(36).slice(2)}`)
@@ -34,7 +36,9 @@ export default function TechBoxTable({
       selectedRow(expandedRow)
       const idx = parseInt(expandedRow, 10)
       const filter = data.filter((_, i) => i !== idx)
+      const filterNew = data.filter((_, i) => i === idx)
       filterRow(filter)
+      getSelectedRow(filterNew)
     } else {
       selectedRow('-1')
       filterRow([])

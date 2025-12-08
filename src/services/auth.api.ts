@@ -1,6 +1,5 @@
 import { createServerFn } from '@tanstack/react-start'
 import { SignInSchema, SignUpSchema } from './auth.schema'
-import type { AuthState } from './auth.schema'
 import { getSupabaseServerClient } from '@/utils/supabase/server'
 
 export const signUp = createServerFn()
@@ -59,6 +58,7 @@ export const getUser = createServerFn().handler(async () => {
   return {
     isAuthenticated: true,
     user: {
+      id: data.user.id,
       email: data.user.email,
     },
   }

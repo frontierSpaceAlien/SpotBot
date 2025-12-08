@@ -45,7 +45,12 @@ export function Modal({ isOpen, onClose, boxTitle, setNewData }: ModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {boxTitle?.match('oki/setplay') ? (
-          <AddOkiForm />
+          <AddOkiForm
+            returnData={(e) => {
+              getData(e)
+            }}
+            close={onClose}
+          />
         ) : (
           <AddComboForm
             returnData={(e) => {

@@ -2,26 +2,40 @@ import React from 'react'
 import AddIcon from '@mui/icons-material/Add'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { RemoveModal } from './modal/RemoveModal'
 import TechBoxTable from '@/components/table/TechBoxTable'
 import { Modal } from '@/components/modal/Modal'
+import { addTech, deleteTech } from '@/services/tech.api'
 
 interface TechBoxProps {
   boxTitle?: string
   defaultData: Array<any>
   columns: Array<any>
+  character: string
 }
 
 export default function TechBox({
   boxTitle,
   defaultData,
   columns,
+  character,
 }: TechBoxProps) {
   const [data, setData] = React.useState(() => [...defaultData])
   const [open, setOpen] = React.useState<boolean>(false)
   const [openRemove, setOpenRemove] = React.useState<boolean>(false)
   const [selectedRow, setSelectedRow] = React.useState<boolean>(true)
-  const [filteredData, setFilteredData] = React.useState([])
+  const [filteredData, setFilteredData] = React.useState<any>(null)
+  const [getSelectedRow, setSelected] = React.useState<any>(null)
+
+  const addTechMutation = useMutation({
+    mutationFn: (newData: Parameters<typeof addTech>[0]) => addTech(newData),
+  })
+
+  const deleteTechMutation = useMutation({
+    mutationFn: (deleteData: Parameters<typeof deleteTech>[0]) =>
+      deleteTech(deleteData),
+  })
 
   function rowSelect(e: any) {
     if (e !== '-1') {
@@ -35,9 +49,35 @@ export default function TechBox({
     setFilteredData(e)
   }
 
+  function setCurrentRow(e: any) {
+    setSelected(e)
+  }
+
   function triggerDelete() {
-    setData(filteredData)
-    setFilteredData([])
+    if (getSelectedRow !== null) {
+      deleteTechMutation.mutate({
+        data: {
+          getSelectedRow,
+        },
+      })
+      setData(filteredData)
+      setFilteredData(null)
+    }
+  }
+
+  function triggerOpen() {
+    setOpen(true)
+  }
+
+  function triggerAdd(tech: any) {
+    addTechMutation.mutate({
+      data: {
+        tech,
+        character,
+        boxTitle: boxTitle ?? '',
+      },
+    })
+    setData((prev) => [...prev, tech])
   }
 
   return (
@@ -50,7 +90,7 @@ export default function TechBox({
           <div>
             <button
               className="cursor-pointer hover:scale-110 transition-transform"
-              onClick={() => setOpen(true)}
+              onClick={() => triggerOpen()}
             >
               <AddIcon />
             </button>
@@ -70,9 +110,7 @@ export default function TechBox({
             isOpen={open}
             onClose={() => setOpen(false)}
             boxTitle={boxTitle}
-            setNewData={(newComboData: any) =>
-              setData((prev) => [...prev, newComboData])
-            }
+            setNewData={(e) => triggerAdd(e)}
           />
           <RemoveModal
             isOpen={openRemove}
@@ -88,6 +126,7 @@ export default function TechBox({
           columns={columns}
           filterRow={(e: any) => setFilter(e)}
           selectedRow={(e) => rowSelect(e)}
+          getSelectedRow={(e) => setCurrentRow(e)}
         />
       </div>
     </div>

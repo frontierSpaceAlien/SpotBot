@@ -1,4 +1,5 @@
 import { useForm } from '@tanstack/react-form'
+import { v4 as uuidv4 } from 'uuid'
 
 interface AddComboFormProps {
   returnData: (e: any) => void
@@ -6,6 +7,7 @@ interface AddComboFormProps {
 }
 
 interface ComboFormData {
+  id: string
   combo?: string
   damage: number
   advantage: number
@@ -15,12 +17,15 @@ interface ComboFormData {
 export default function AddComboForm({ returnData, close }: AddComboFormProps) {
   const form = useForm({
     defaultValues: {
+      id: '',
       combo: '',
       damage: 0,
       advantage: 0,
       notes: '',
     } as ComboFormData,
     onSubmit: ({ value }) => {
+      let myuuid = uuidv4()
+      value.id += myuuid
       returnData(value)
       form.reset()
       close()
