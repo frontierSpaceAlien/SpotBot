@@ -11,6 +11,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import NotFound from '@/components/NotFound'
 import { getUser } from '@/services/auth.api'
+import { Toaster } from 'sonner'
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient
@@ -69,6 +70,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           />
           <Footer />
           <Scripts />
+          <Toaster />
         </body>
       </html>
     </QueryClientProvider>

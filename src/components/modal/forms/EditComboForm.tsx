@@ -1,37 +1,37 @@
 import { useForm } from '@tanstack/react-form'
-import { v4 as uuidv4 } from 'uuid'
 
-interface AddComboFormProps {
+interface EditComboFormProps {
   returnData: (e: any) => void
   close: () => void
+  editData: any
 }
 
 interface ComboFormData {
-  id: string
   combo?: string
   damage: number
   advantage: number
   notes?: string
 }
 
-export default function AddComboForm({ returnData, close }: AddComboFormProps) {
+export default function EditComboForm({
+  returnData,
+  close,
+  editData,
+}: EditComboFormProps) {
   const form = useForm({
     defaultValues: {
-      id: '',
-      combo: '',
-      damage: 0,
-      advantage: 0,
-      notes: '',
+      id: editData?.id ?? '',
+      combo: editData?.combo ?? '',
+      damage: editData?.damage ?? 0,
+      advantage: editData?.advantage ?? 0,
+      notes: editData?.notes ?? '',
     } as ComboFormData,
     onSubmit: ({ value }) => {
-      let myuuid = uuidv4()
-      value.id += myuuid
       returnData(value)
       form.reset()
       close()
     },
   })
-
   return (
     <div>
       <form
@@ -105,7 +105,10 @@ export default function AddComboForm({ returnData, close }: AddComboFormProps) {
             id="closeAddTech"
             type="button"
             className="bg-red-500/70 cursor-pointer p-5 border rounded w-full"
-            onClick={() => close()}
+            onClick={() => {
+              close()
+              form.reset()
+            }}
           >
             Cancel
           </button>

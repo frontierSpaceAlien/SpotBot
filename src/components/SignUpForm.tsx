@@ -2,6 +2,7 @@ import { useRouter } from '@tanstack/react-router'
 import { useForm } from '@tanstack/react-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { signUp } from '@/services/auth.api'
+import { toast } from 'sonner'
 
 interface SignUpFormData {
   email: string
@@ -15,10 +16,15 @@ export default function SignUpForm() {
 
   const signUpMutation = useMutation({
     mutationFn: (data: Parameters<typeof signUp>[0]) => signUp(data),
-    onSuccess: () => {
-      queryClient.resetQueries()
-      router.invalidate()
-      form.reset()
+    onSuccess: (response) => {
+      if (response === 'Success') {
+        toast.success('Sign Up Successful')
+        queryClient.resetQueries()
+        router.invalidate()
+        form.reset()
+      } else {
+        toast.error(response)
+      }
     },
   })
 
@@ -29,13 +35,18 @@ export default function SignUpForm() {
       confirmPassword: '',
     } as SignUpFormData,
     onSubmit: ({ value }) => {
-      signUpMutation.mutate({
-        data: {
-          email: value.email,
-          password: value.password,
-          confirmPassword: value.confirmPassword,
-        },
-      })
+      if (value.password != value.confirmPassword) {
+        toast.error('Passwords do not match.')
+        return
+      } else {
+        signUpMutation.mutate({
+          data: {
+            email: value.email,
+            password: value.password,
+            confirmPassword: value.confirmPassword,
+          },
+        })
+      }
     },
   })
 

@@ -1,9 +1,9 @@
 import { useForm } from '@tanstack/react-form'
-import { v4 as uuidv4 } from 'uuid'
 
-interface AddComboFormProps {
+interface EditComboFormProps {
   returnData: (e: any) => void
   close: () => void
+  editData: any
 }
 
 interface ComboFormData {
@@ -17,21 +17,23 @@ interface ComboFormData {
   notes: string
 }
 
-export default function AddOkiForm({ returnData, close }: AddComboFormProps) {
+export default function EditOkiForm({
+  returnData,
+  close,
+  editData,
+}: EditComboFormProps) {
   const form = useForm({
     defaultValues: {
-      id: '',
-      screenPosition: '',
-      ender: '',
-      frameKill: '',
-      meaty: '',
-      frameOnHit: '',
-      frameOnBlock: '',
-      notes: '',
+      id: editData?.id ?? '',
+      screenPosition: editData?.screenPosition ?? '',
+      ender: editData?.ender ?? '',
+      frameKill: editData?.frameKill ?? '',
+      meaty: editData?.meaty ?? '',
+      frameOnHit: editData?.frameOnHit ?? '',
+      frameOnBlock: editData?.frameOnBlock ?? '',
+      notes: editData?.notes ?? '',
     } as ComboFormData,
     onSubmit: ({ value }) => {
-      let myuuid = uuidv4()
-      value.id += myuuid
       returnData(value)
       form.reset()
       close()
@@ -151,7 +153,10 @@ export default function AddOkiForm({ returnData, close }: AddComboFormProps) {
             id="closeAddTech"
             type="button"
             className="bg-red-500/70 cursor-pointer p-5 border rounded w-full"
-            onClick={() => close()}
+            onClick={() => {
+              close()
+              form.reset()
+            }}
           >
             Cancel
           </button>

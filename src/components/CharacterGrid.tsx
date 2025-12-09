@@ -12,7 +12,6 @@ export default function CharacterGrid({ characters }: CharacterGridProps) {
     border: '1px solid #363736',
     borderRadius: '8px',
     padding: '8px',
-    backgroundColor: '#161616',
     userSelect: 'none' as const,
   }
 

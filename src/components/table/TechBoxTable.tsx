@@ -38,7 +38,7 @@ export default function TechBoxTable({
       const filter = data.filter((_, i) => i !== idx)
       const filterNew = data.filter((_, i) => i === idx)
       filterRow(filter)
-      getSelectedRow(filterNew)
+      getSelectedRow(filterNew[0])
     } else {
       selectedRow('-1')
       filterRow([])

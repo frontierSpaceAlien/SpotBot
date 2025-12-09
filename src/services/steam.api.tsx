@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 
 export const fetchNewsForApp = createServerFn().handler(async () => {
   const response = await fetch(
-    'https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1364780&count=50&maxlength=300&format=json',
+    'https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1364780&count=10&maxlength=300&format=json',
     {
       headers: {
         accept: 'application/json',

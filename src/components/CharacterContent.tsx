@@ -20,7 +20,7 @@ export default function CharacterContent({
   oki,
 }: CharacterContentProps) {
   return (
-    <div className="min-h-[calc(100vh-114px)] p-5 space-y-5 mx-auto max-w-7xl max-2xl:max-w-none max-2xl:mx-0">
+    <div className="min-h-[calc(100vh-150px)] p-5 space-y-5 mx-auto max-w-7xl max-2xl:max-w-none max-2xl:mx-0">
       <CharacterHeader image={headerImg} character={character} />
       <div className="flex flex-col lg:flex-row gap-5">
         <div className="flex flex-col gap-5">

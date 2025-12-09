@@ -2,6 +2,7 @@ import { Link, useNavigate } from '@tanstack/react-router'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useForm } from '@tanstack/react-form'
 import { signIn } from '@/services/auth.api'
+import { toast } from 'sonner'
 
 interface SignInForm {
   email: string
@@ -16,9 +17,10 @@ export default function SignInForm() {
     mutationFn: (data: Parameters<typeof signIn>[0]) => signIn(data),
     onSuccess: (response) => {
       if (response?.error) {
-        console.log(response.error)
+        toast.error(response.error)
         return
       }
+      toast.success('Sign in Successful')
       navigate({ to: '/home' })
       queryClient.resetQueries
     },

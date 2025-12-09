@@ -1,15 +1,22 @@
 import CloseIcon from '@mui/icons-material/Close'
-import AddComboForm from './forms/AddComboForm'
-import AddOkiForm from './forms/AddOkiForm'
+import EditComboForm from './forms/EditComboForm'
+import EditOkiForm from './forms/EditOkiForm'
 
 interface ModalProps {
   isOpen: boolean
   onClose: () => void
   boxTitle?: string
+  selectedData: any
   setNewData: (e: any) => void
 }
 
-export function Modal({ isOpen, onClose, boxTitle, setNewData }: ModalProps) {
+export function EditModal({
+  isOpen,
+  onClose,
+  boxTitle,
+  selectedData,
+  setNewData,
+}: ModalProps) {
   function getData(name: any) {
     setNewData(name)
   }
@@ -31,7 +38,7 @@ export function Modal({ isOpen, onClose, boxTitle, setNewData }: ModalProps) {
           className="flex flex-row justify-between"
           onClick={(e) => e.stopPropagation()}
         >
-          <h1 className="text-2xl uppercase font-semibold">Add {boxTitle}</h1>
+          <h1 className="text-2xl uppercase font-semibold">Edit {boxTitle}</h1>
           <button
             className="cursor-pointer hover:scale-110 transition-transform"
             onClick={onClose}
@@ -45,18 +52,20 @@ export function Modal({ isOpen, onClose, boxTitle, setNewData }: ModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {boxTitle?.match('oki/setplay') ? (
-          <AddOkiForm
+          <EditOkiForm
             returnData={(e) => {
               getData(e)
             }}
             close={onClose}
+            editData={selectedData}
           />
         ) : (
-          <AddComboForm
+          <EditComboForm
             returnData={(e) => {
               getData(e)
             }}
             close={onClose}
+            editData={selectedData}
           />
         )}
       </div>

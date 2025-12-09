@@ -14,19 +14,19 @@ export const signUp = createServerFn()
     if (error) {
       switch (error.code) {
         case 'email_exists':
-          throw new Error('An account with this email already exists.')
+          return error.message
         case 'weak_password':
-          throw new Error('The password provided is too weak.')
+          return error.message
         default:
-          throw new Error(error.message)
+          return error.message
       }
     }
 
     if (userData.user) {
-      return userData.user.id
+      return 'Success'
     }
 
-    throw new Error('User sign-up failed for an unknown reason.')
+    return error
   })
 
 export const signIn = createServerFn()
