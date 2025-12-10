@@ -13,7 +13,7 @@ export default function NormalsBox(character: NormalsBoxProps) {
           <p className="text-white font-semibold uppercase text-lg">Normals</p>
         </div>
       </div>
-      <div className="bg-[#161616] p-5 max-h-128 border border-gray-400 rounded overflow-y-auto border-t-0 rounded-t-none">
+      <div className="bg-[#161616] p-5 max-h-128 border border-gray-400 rounded overflow-y-auto border-t-0 rounded-t-none scrollbar">
         <NormalsTable data={character.character} columns={normalsColumns} />
       </div>
     </div>
