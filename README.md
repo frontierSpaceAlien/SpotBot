@@ -179,6 +179,7 @@ After developing this project, I am satisfied with what I have learned and what 
 - [ ] Add additional tech boxes for optional tech?
 - [ ] Flesh out UI
 - [ ] Add loading component on calls
+      
 See the [open issues](https://github.com/frontierSpaceAlien/SpotBot/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
