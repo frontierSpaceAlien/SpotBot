@@ -239,10 +239,7 @@ Project Link: [https://github.com/frontierSpaceAlien/SpotBot](https://github.com
 [license-url]: https://github.com/frontierSpaceAlien/SpotBot/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: 
-
-
-https://github.com/user-attachments/assets/14f65b44-c22e-4b01-9165-8c76228137e9
+<!-- [product-screenshot]: https://github.com/user-attachments/assets/14f65b44-c22e-4b01-9165-8c76228137e9 -->
 
 <!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
