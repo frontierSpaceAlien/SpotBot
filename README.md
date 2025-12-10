@@ -30,7 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/frontierSpaceAlien/SpotBot">
+  <a href="https://sftechtracker.vercel.app/">
     <img width="120" height="120" alt="logo" src="https://github.com/user-attachments/assets/6d8983a8-f545-4757-967f-1fde4f1844f0" />
   </a>
 
@@ -42,7 +42,7 @@
     <a href="https://github.com/frontierSpaceAlien/SpotBot"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/frontierSpaceAlien/SpotBot">View Demo</a>
+    <a href="https://sftechtracker.vercel.app/">View Demo</a>
     &middot;
     <a href="https://github.com/frontierSpaceAlien/SpotBot/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
@@ -112,7 +112,6 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * Grab your free Steam API key at [https://steamcommunity.com/dev](https://steamcommunity.com/dev)
 * Setup your Supabase project at [https://supabase.com](https://supabase.com/) and retrieve your project url and publishable key
   
