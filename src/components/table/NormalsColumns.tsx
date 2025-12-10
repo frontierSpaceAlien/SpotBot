@@ -1,7 +1,6 @@
 import { createColumnHelper } from '@tanstack/table-core'
-import type { Normals } from '@/data/normalsData'
 
-const columnHelper = createColumnHelper<Normals>()
+const columnHelper = createColumnHelper()
 
 export const normalsColumns = [
   columnHelper.accessor('normal', {

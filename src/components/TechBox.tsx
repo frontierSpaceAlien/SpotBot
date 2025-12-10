@@ -30,6 +30,7 @@ export default function TechBox({
   const [selectedRow, setSelectedRow] = React.useState<boolean>(true)
   const [filteredData, setFilteredData] = React.useState<any>(null)
   const [getSelectedRow, setSelected] = React.useState<any>(null)
+  const [resetTrigger, setResetTrigger] = React.useState<boolean>(false)
 
   const addTechMutation = useMutation({
     mutationFn: (newData: Parameters<typeof addTech>[0]) => addTech(newData),
@@ -70,6 +71,9 @@ export default function TechBox({
       })
       setData(filteredData)
       setFilteredData(null)
+      setSelected(null)
+      setSelectedRow(true)
+      setResetTrigger((prev) => !prev)
     }
   }
 
@@ -157,6 +161,7 @@ export default function TechBox({
           filterRow={(e: any) => setFilter(e)}
           selectedRow={(e) => rowSelect(e)}
           getSelectedRow={(e) => setCurrentRow(e)}
+          resetSelectedRow={resetTrigger}
         />
       </div>
     </div>

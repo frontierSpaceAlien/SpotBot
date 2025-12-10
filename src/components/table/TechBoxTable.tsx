@@ -11,6 +11,7 @@ interface TechBoxTableProps {
   filterRow: (e: any) => void
   selectedRow: (e: any) => void
   getSelectedRow: (e: any) => void
+  resetSelectedRow?: boolean
 }
 
 export default function TechBoxTable({
@@ -19,9 +20,16 @@ export default function TechBoxTable({
   filterRow,
   selectedRow,
   getSelectedRow,
+  resetSelectedRow,
 }: TechBoxTableProps) {
   const [expandedRow, setExpandedRow] = useState<string | null>(null)
   const tableIdRef = useRef(`table-${Math.random().toString(36).slice(2)}`)
+
+  useEffect(() => {
+    if (resetSelectedRow) {
+      setExpandedRow(null)
+    }
+  }, [resetSelectedRow])
 
   useEffect(() => {
     function onExternalToggle(e: Event) {
