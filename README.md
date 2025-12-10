@@ -89,21 +89,12 @@ Track oki/setplay and combo options for multiple characters!
 
 I created this project because mentally tracking several new setplay options and combo routing options in Street Fighter 6 was always challenging. Especially when trying to practice these in matches, I generally tend to forget. This project helps alleviate these issues and keeps all the tech in one place.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 ### Built With
 
-* [![TanstackStart][TanstackStart.com]][TanstackStart-url]
-* [![TanstackQuery][TanstackQuery.com]][TanstackQuery-url]
-* [![TanstackForm][TanstackForm.com]][TanstackForm-url]
-* [![TailwindCSS][TailwindCSS.com]][TailwindCSS-url]
-* [![Supabase][Supabase.com]][Supabase-url]
+ [![TanstackStart][TanstackStart.com]][TanstackStart-url] [![TanstackQuery][TanstackQuery.com]][TanstackQuery-url] [![TanstackForm][TanstackForm.com]][TanstackForm-url] [![TailwindCSS][TailwindCSS.com]][TailwindCSS-url] [![Supabase][Supabase.com]][Supabase-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
