@@ -140,6 +140,16 @@ This is an example of how to list things you need to use the software and how to
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- USAGE EXAMPLES -->
+## Usage
+
+This project does have authentication. You can sign up using any email as it does not send a confirmation email for account confirmation. However you can use the test account to try out the website yourself.
+```sh
+email: test@gmail.com
+password: 123456
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CHALLENGES --> 
 ## Challenges
@@ -161,19 +171,6 @@ In this project, I decided to use Tanstack Start since I wanted to learn a new s
 After developing this project, I am satisfied with what I have learned and what I have achieved. Of course, I want to add more features to this project and expand it a bit more, but so far I have achieved what I set out to do initially. Which was to learn about authentication and a new tech stack. I do want to pursue more projects using Tanstack as I have barely scratched the surface and I want to learn more about Tanstack Query as I feel like I don't have a solid grasp on it yet. Additionally, I want to deepend my frontend skills as I feel like I am lacking in that area.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-This project does have authentication. You can sign up using any email as it does not send a confirmation email for account confirmation. However you can use the test account to try out the website yourself.
-```sh
-email: test@gmail.com
-password: 123456
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
