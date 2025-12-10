@@ -1,28 +1,21 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { redirect, useRouter } from '@tanstack/react-router'
-import { authQueries, useAuthenticatedUser } from '@/services/queries'
+import { useRouter } from '@tanstack/react-router'
+import { authQueries } from '@/services/queries'
 import { signOut } from '@/services/auth.api'
 import { Link } from '@tanstack/react-router'
 
 export default function Logout() {
   const router = useRouter()
   const queryClient = useQueryClient()
-  const {
-    data: { user },
-  } = useAuthenticatedUser()
 
   const handleLogout = async () => {
     await signOut()
     await queryClient.invalidateQueries(authQueries.user())
     router.invalidate()
-    redirect({ to: '/' })
   }
+
   return (
     <div className="p-4 rounded">
-      <p className="font-bold">Email:</p>
-      <div className="">
-        <label>{user.email}</label>
-      </div>
       {/* <div className="font-bold mb-5">
         <p>Number of Tracked Characters: </p>
         add tracked characters here
