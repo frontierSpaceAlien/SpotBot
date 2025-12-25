@@ -1,4 +1,5 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
+import { useQuery } from '@tanstack/react-query'
 import CharacterGrid from '@/components/CharacterGrid'
 import Logout from '@/components/Logout'
 import { characterImg } from '@/data/characterImg'
@@ -14,21 +15,27 @@ export const Route = createFileRoute('/home')({
     }
   },
   component: RouteComponent,
-  loader: async (load) => {
-    if (!load.context.authState.isAuthenticated) {
-      throw redirect({ to: '/' })
-    }
-    try {
-      const data = await fetchNewsForApp()
-      return data
-    } catch (error) {
-      console.error('Error fetching news: ', error)
-      return false
-    }
-  },
+  // loader: async (load) => {
+  //   if (!load.context.authState.isAuthenticated) {
+  //     throw redirect({ to: '/' })
+  //   }
+  //   try {
+  //     const data = await fetchNewsForApp()
+  //     return data
+  //   } catch (error) {
+  //     console.error('Error fetching news: ', error)
+  //     return false
+  //   }
+  // },
+  // staleTime: 300_000,
 })
 
 function RouteComponent() {
+  const { status, isPending, error, data } = useQuery({
+    queryKey: ['newsData'],
+    queryFn: () => fetchNewsForApp(),
+  })
+
   return (
     <Suspense
       fallback={<div className="min-h-[calc(100vh-150px)] ">Loading...</div>}
@@ -47,7 +54,7 @@ function RouteComponent() {
               <Logout />
             </div>
           </div>
-          <LatestNews data={Route.useLoaderData()} />
+          <LatestNews data={data} pending={isPending} error={error} />
           <PatchNotes />
         </header>
       </div>

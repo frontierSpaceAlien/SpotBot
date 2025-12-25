@@ -1,10 +1,12 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
+import { useQuery } from '@tanstack/react-query'
 import { characterImg } from '@/data/characterImg'
 import CharacterGrid from '@/components/CharacterGrid'
 import LoginForm from '@/components/SignInForm'
 import { fetchNewsForApp } from '@/services/steam.api'
 import LatestNews from '@/components/LatestNews'
 import PatchNotes from '@/components/PatchNotes'
+import { Suspense } from 'react'
 
 export const Route = createFileRoute('/')({
   beforeLoad: async ({ context }) => {
@@ -13,18 +15,24 @@ export const Route = createFileRoute('/')({
     }
   },
   component: App,
-  loader: async () => {
-    try {
-      const data = await fetchNewsForApp()
-      return data
-    } catch (error) {
-      console.error('Error fetching news: ', error)
-      return false
-    }
-  },
+  // loader: async () => {
+  //   try {
+  //     const data = await fetchNewsForApp()
+  //     return data
+  //   } catch (error) {
+  //     console.error('Error fetching news: ', error)
+  //     return false
+  //   }
+  // },
+  // staleTime: 300_000,
 })
 
 function App() {
+  const { status, isPending, error, data } = useQuery({
+    queryKey: ['newsData'],
+    queryFn: () => fetchNewsForApp(),
+  })
+
   return (
     <div className="min-h-[calc(100vh-150px)] ">
       <header className="max-w-5xl p-10 mx-auto">
@@ -43,7 +51,7 @@ function App() {
             <LoginForm />
           </div>
         </div>
-        <LatestNews data={Route.useLoaderData()} />
+        <LatestNews data={data} pending={isPending} error={error} />
         <PatchNotes />
       </header>
     </div>

@@ -23,7 +23,7 @@ export default function Logout() {
       <Link to="/dashboard">
         <button
           type="button"
-          className="mt-5 w-full bg-[#161616] text-white py-2 rounded border border-gray-300 cursor-pointer hover:bg-[#1a1a1a]"
+          className="w-full bg-[#161616] text-white py-2 rounded border border-gray-300 cursor-pointer hover:bg-[#1a1a1a]"
         >
           Go To Dashboard
         </button>

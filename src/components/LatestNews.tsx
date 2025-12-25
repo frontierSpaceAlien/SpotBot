@@ -1,15 +1,17 @@
 interface LatestNewsProps {
   data: any
+  pending: any
+  error: any
 }
 
-export default function LatestNews({ data }: LatestNewsProps) {
+export default function LatestNews({ data, pending, error }: LatestNewsProps) {
   return (
     <div className="">
       <div className="p-5 mt-6 border border-[#363736] rounded rounded-b-none border-b-0 font-semibold">
         Latest News
       </div>
       <div className="border border-[#363736] rounded rounded-t-none rounded-b-none p-2 max-h-40 overflow-y-auto scrollbar ">
-        {!data ? (
+        {pending ? (
           <>
             <div className="text-red-400">Steam Web API offline</div>
             <a
