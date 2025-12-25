@@ -19,13 +19,12 @@ export const Route = createFileRoute('/')({
       return data
     } catch (error) {
       console.error('Error fetching news: ', error)
-      return { error: 'failed to load news' }
+      return false
     }
   },
 })
 
 function App() {
-  const data = Route.useLoaderData()
   return (
     <div className="min-h-[calc(100vh-150px)] ">
       <header className="max-w-5xl p-10 mx-auto">
@@ -44,7 +43,7 @@ function App() {
             <LoginForm />
           </div>
         </div>
-        <LatestNews data={data} />
+        <LatestNews data={Route.useLoaderData()} />
         <PatchNotes />
       </header>
     </div>

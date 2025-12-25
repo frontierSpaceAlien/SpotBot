@@ -18,7 +18,6 @@ export const Route = createRootRouteWithContext<{
 }>()({
   beforeLoad: async ({ context }) => {
     const authState = await getUser()
-
     return { authState }
   },
   head: () => ({

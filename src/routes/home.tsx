@@ -23,13 +23,12 @@ export const Route = createFileRoute('/home')({
       return data
     } catch (error) {
       console.error('Error fetching news: ', error)
-      return { error: 'failed to load news' }
+      return false
     }
   },
 })
 
 function RouteComponent() {
-  const data = Route.useLoaderData()
   return (
     <Suspense
       fallback={<div className="min-h-[calc(100vh-150px)] ">Loading...</div>}
@@ -48,7 +47,7 @@ function RouteComponent() {
               <Logout />
             </div>
           </div>
-          <LatestNews data={data} />
+          <LatestNews data={Route.useLoaderData()} />
           <PatchNotes />
         </header>
       </div>

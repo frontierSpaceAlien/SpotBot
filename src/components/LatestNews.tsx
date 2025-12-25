@@ -9,17 +9,31 @@ export default function LatestNews({ data }: LatestNewsProps) {
         Latest News
       </div>
       <div className="border border-[#363736] rounded rounded-t-none rounded-b-none p-2 max-h-40 overflow-y-auto scrollbar ">
-        {data.appnews.newsitems.map((e: any) => {
-          if (e.feedname === 'steam_community_announcements') {
-            return (
-              <div key={e.date} className="text-blue-500 hover:underline">
-                <a href={e.url} target="_blank" rel="noopener noreferrer">
-                  {e.title}
-                </a>
-              </div>
-            )
-          }
-        })}
+        {!data ? (
+          <>
+            <div className="text-red-400">Steam Web API offline</div>
+            <a
+              href={'https://steamstat.us'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 font-bold underline"
+            >
+              Current Steam status
+            </a>
+          </>
+        ) : (
+          data.appnews.newsitems.map((e: any) => {
+            if (e.feedname === 'steam_community_announcements') {
+              return (
+                <div key={e.date} className="text-blue-500 hover:underline">
+                  <a href={e.url} target="_blank" rel="noopener noreferrer">
+                    {e.title}
+                  </a>
+                </div>
+              )
+            }
+          })
+        )}
       </div>
       <div className="font-semibold text-blue-500 hover:underline border border-[#363736] border-t-0 p-2">
         <a

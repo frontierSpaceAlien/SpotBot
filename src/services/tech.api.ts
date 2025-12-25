@@ -141,10 +141,18 @@ export const getTech = createServerFn()
   .inputValidator((data: { character: string }) => data)
   .handler(async ({ data }) => {
     const supabase = getSupabaseServerClient()
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
+
+    if (!user?.identities?.[0]?.user_id) {
+      throw new Error('User identity not found')
+    }
 
     const { data: tech, error } = await supabase
       .from('techs')
       .select()
+      .eq('user_id', user.identities[0].user_id)
       .eq('character', data.character)
 
     if (error) {
