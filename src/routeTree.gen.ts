@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ResetpasswordRouteImport } from './routes/resetpassword'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as ForgotpasswordRouteImport } from './routes/forgotpassword'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CharacterZangiefRouteImport } from './routes/character/zangief'
@@ -47,9 +49,19 @@ const SignupRoute = SignupRouteImport.update({
   path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResetpasswordRoute = ResetpasswordRouteImport.update({
+  id: '/resetpassword',
+  path: '/resetpassword',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotpasswordRoute = ForgotpasswordRouteImport.update({
+  id: '/forgotpassword',
+  path: '/forgotpassword',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -206,7 +218,9 @@ const CharacterAkiRoute = CharacterAkiRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/forgotpassword': typeof ForgotpasswordRoute
   '/home': typeof HomeRoute
+  '/resetpassword': typeof ResetpasswordRoute
   '/signup': typeof SignupRoute
   '/character/aki': typeof CharacterAkiRoute
   '/character/akuma': typeof CharacterAkumaRoute
@@ -240,7 +254,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/forgotpassword': typeof ForgotpasswordRoute
   '/home': typeof HomeRoute
+  '/resetpassword': typeof ResetpasswordRoute
   '/signup': typeof SignupRoute
   '/character/aki': typeof CharacterAkiRoute
   '/character/akuma': typeof CharacterAkumaRoute
@@ -275,7 +291,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/forgotpassword': typeof ForgotpasswordRoute
   '/home': typeof HomeRoute
+  '/resetpassword': typeof ResetpasswordRoute
   '/signup': typeof SignupRoute
   '/character/aki': typeof CharacterAkiRoute
   '/character/akuma': typeof CharacterAkumaRoute
@@ -311,7 +329,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dashboard'
+    | '/forgotpassword'
     | '/home'
+    | '/resetpassword'
     | '/signup'
     | '/character/aki'
     | '/character/akuma'
@@ -345,7 +365,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/dashboard'
+    | '/forgotpassword'
     | '/home'
+    | '/resetpassword'
     | '/signup'
     | '/character/aki'
     | '/character/akuma'
@@ -379,7 +401,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/dashboard'
+    | '/forgotpassword'
     | '/home'
+    | '/resetpassword'
     | '/signup'
     | '/character/aki'
     | '/character/akuma'
@@ -414,7 +438,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  ForgotpasswordRoute: typeof ForgotpasswordRoute
   HomeRoute: typeof HomeRoute
+  ResetpasswordRoute: typeof ResetpasswordRoute
   SignupRoute: typeof SignupRoute
   CharacterAkiRoute: typeof CharacterAkiRoute
   CharacterAkumaRoute: typeof CharacterAkumaRoute
@@ -455,11 +481,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resetpassword': {
+      id: '/resetpassword'
+      path: '/resetpassword'
+      fullPath: '/resetpassword'
+      preLoaderRoute: typeof ResetpasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgotpassword': {
+      id: '/forgotpassword'
+      path: '/forgotpassword'
+      fullPath: '/forgotpassword'
+      preLoaderRoute: typeof ForgotpasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -678,7 +718,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  ForgotpasswordRoute: ForgotpasswordRoute,
   HomeRoute: HomeRoute,
+  ResetpasswordRoute: ResetpasswordRoute,
   SignupRoute: SignupRoute,
   CharacterAkiRoute: CharacterAkiRoute,
   CharacterAkumaRoute: CharacterAkumaRoute,

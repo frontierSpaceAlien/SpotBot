@@ -24,6 +24,7 @@ export default function CharacterGrid({ characters }: CharacterGridProps) {
         >
           <Link to={'/character/' + character.name}>
             <img
+              loading="lazy"
               className="border border-[#363736] rounded"
               draggable={false}
               src={character.src}

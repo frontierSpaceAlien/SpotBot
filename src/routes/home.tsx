@@ -1,12 +1,12 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
+import { Suspense } from 'react'
 import CharacterGrid from '@/components/CharacterGrid'
 import Logout from '@/components/Logout'
 import { characterImg } from '@/data/characterImg'
 import { fetchNewsForApp } from '@/services/steam.api'
 import LatestNews from '@/components/LatestNews'
 import PatchNotes from '@/components/PatchNotes'
-import { Suspense } from 'react'
 
 export const Route = createFileRoute('/home')({
   beforeLoad: async ({ context }) => {

@@ -1,8 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { useRouter } from '@tanstack/react-router'
+import { Link, useRouter } from '@tanstack/react-router'
 import { authQueries } from '@/services/queries'
 import { signOut } from '@/services/auth.api'
-import { Link } from '@tanstack/react-router'
 
 export default function Logout() {
   const router = useRouter()

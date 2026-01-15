@@ -6,7 +6,6 @@ import LoginForm from '@/components/SignInForm'
 import { fetchNewsForApp } from '@/services/steam.api'
 import LatestNews from '@/components/LatestNews'
 import PatchNotes from '@/components/PatchNotes'
-import { Suspense } from 'react'
 
 export const Route = createFileRoute('/')({
   beforeLoad: async ({ context }) => {

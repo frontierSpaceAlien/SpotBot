@@ -1,8 +1,9 @@
+import React from 'react'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { toast } from 'sonner'
 import { useForm } from '@tanstack/react-form'
 import { signIn } from '@/services/auth.api'
-import { toast } from 'sonner'
 
 interface SignInForm {
   email: string
@@ -18,11 +19,13 @@ export default function SignInForm() {
     onSuccess: (response) => {
       if (response?.error) {
         toast.error(response.error)
+        console.log(response)
         return
       }
       toast.success('Sign in Successful')
+      form.reset()
       navigate({ to: '/home' })
-      queryClient.resetQueries
+      queryClient.resetQueries()
     },
   })
 
@@ -81,17 +84,17 @@ export default function SignInForm() {
           children={([canSubmit, isSubmitting]) => (
             <button
               type="submit"
-              className="w-full bg-[#161616] text-white py-2 rounded border border-gray-300 cursor-pointer hover:bg-[#1a1a1a]"
+              className="w-full bg-[#161616] text-white py-2 rounded border border-gray-300 cursor-pointer disabled:bg-red-300 hover:bg-[#1a1a1a]"
               disabled={!canSubmit}
             >
-              {isSubmitting ? '...' : 'Login'}
+              Login
             </button>
           )}
         ></form.Subscribe>
       </form>
-      <div className="mt-2 text-sm text-white-500 cursor-pointer hover:underline">
-        Forgot Password?
-      </div>
+      {/* <div className="mt-2 text-sm text-white-500 cursor-pointer hover:underline">
+        <Link to="/forgotpassword">Forgot Password?</Link>
+      </div> */}
       <div className="mt-2 text-sm text-white-500 cursor-pointer hover:underline">
         <Link to="/signup">Don't have an account? Sign up</Link>
       </div>

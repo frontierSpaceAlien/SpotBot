@@ -13,7 +13,8 @@ export default function LatestNews({ data, pending, error }: LatestNewsProps) {
       <div className="border border-[#363736] rounded rounded-t-none rounded-b-none p-2 max-h-40 overflow-y-auto scrollbar ">
         {pending ? (
           <>
-            <div className="text-red-400">Steam Web API offline</div>
+            <div>Loading...</div>
+            {/* <div className="text-red-400">Steam Web API offline</div>
             <a
               href={'https://steamstat.us'}
               target="_blank"
@@ -21,7 +22,7 @@ export default function LatestNews({ data, pending, error }: LatestNewsProps) {
               className="text-blue-600 font-bold underline"
             >
               Current Steam status
-            </a>
+            </a> */}
           </>
         ) : (
           data.appnews.newsitems.map((e: any) => {

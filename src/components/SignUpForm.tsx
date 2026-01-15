@@ -1,8 +1,8 @@
 import { useRouter } from '@tanstack/react-router'
 import { useForm } from '@tanstack/react-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { signUp } from '@/services/auth.api'
 import { toast } from 'sonner'
+import { signUp } from '@/services/auth.api'
 
 interface SignUpFormData {
   email: string
