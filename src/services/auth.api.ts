@@ -1,5 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { SignInSchema, SignUpSchema } from './auth.schema'
+import type { EmailOtpType } from '@supabase/supabase-js'
 import { getSupabaseServerClient } from '@/utils/supabase/server'
 
 export const signUp = createServerFn()
@@ -64,7 +65,7 @@ export const getUser = createServerFn().handler(async () => {
   }
 })
 
-const getURL = () => {
+export const getURL = () => {
   let url =
     process.env.NEXT_PUBLIC_SITE_URL ?? // Set this to your site URL in production env.
     process.env.NEXT_PUBLIC_VERCEL_URL ?? // Automatically set by Vercel.
@@ -81,7 +82,7 @@ export const forgotPasswordLink = createServerFn()
   .handler(async ({ data }) => {
     const supabase = getSupabaseServerClient()
     const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
-      redirectTo: getURL() + 'resetpassword',
+      redirectTo: getURL(),
     })
 
     if (error) {
@@ -102,5 +103,39 @@ export const resetPassword = createServerFn()
     if (error) {
       return { error: error.message }
     }
+
     return { success: true }
+  })
+
+export const verifyOtp = createServerFn()
+  .inputValidator((data: { token: string; type: string }) => data)
+  .handler(async ({ data }) => {
+    const supabase = getSupabaseServerClient()
+
+    const { data: getData, error } = await supabase.auth.verifyOtp({
+      token_hash: data.token,
+      type: data.type,
+    })
+
+    if (error) {
+      return console.log(error.message)
+    }
+    return getData.session
+  })
+
+export const setSession = createServerFn()
+  .inputValidator(
+    (data: { access_token: string; refresh_token: string }) => data,
+  )
+  .handler(async ({ data }) => {
+    const supabase = getSupabaseServerClient()
+    const { data: res, error } = await supabase.auth.setSession({
+      access_token: data.access_token,
+      refresh_token: data.refresh_token,
+    })
+
+    if (error) {
+      return console.log(error.message)
+    }
+    return true
   })

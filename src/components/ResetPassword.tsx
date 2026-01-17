@@ -1,38 +1,71 @@
 import { useEffect, useState } from 'react'
-import { redirect, useRouter } from '@tanstack/react-router'
+import { useRouter } from '@tanstack/react-router'
 import { useForm } from '@tanstack/react-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
-import { resetPassword } from '@/services/auth.api'
+import { createClient } from '@supabase/supabase-js'
+import type { EmailOtpType } from '@supabase/supabase-js'
+import { resetPassword, setSession, verifyOtp } from '@/services/auth.api'
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+)
 
 export default function ResetPassword() {
   const queryClient = useQueryClient()
   const router = useRouter()
   const [isValidToken, setIsValidToken] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const { searchParams } = new URL(window.location.href)
+  const token_hash = searchParams.get('token_hash') ?? ''
+  const type = searchParams.get('type') ?? ('' as EmailOtpType)
+
+  const setSessionMutation = useMutation({
+    mutationFn: (data: Parameters<typeof setSession>[0]) => setSession(data),
+    onSuccess: (sesh) => {
+      if (sesh === undefined) {
+        toast.error(
+          'Invalid or expired recovery token. Please request a new password reset.',
+        )
+        setIsValidToken(false)
+      } else {
+        setIsValidToken(true)
+      }
+      setIsLoading(false)
+    },
+  })
+
+  const OtpMutation = useMutation({
+    mutationFn: (data: Parameters<typeof verifyOtp>[0]) => verifyOtp(data),
+    onSuccess: (sesh) => {
+      setSessionMutation.mutate({
+        data: {
+          access_token: sesh?.access_token ?? '',
+          refresh_token: sesh?.refresh_token ?? '',
+        },
+      })
+    },
+  })
 
   useEffect(() => {
-    // Check if we have a valid recovery token in the URL
-    const hash = window.location.hash
-    if (hash.includes('token_hash') && hash.includes('type=recovery')) {
-      setIsValidToken(true)
-    } else {
-      toast.error(
-        'Invalid or missing recovery token. Please request a new password reset.',
-      )
-    }
-    setIsLoading(false)
+    OtpMutation.mutate({
+      data: {
+        token: token_hash,
+        type: type,
+      },
+    })
   }, [])
 
   const resetPasswordMutation = useMutation({
     mutationFn: (data: Parameters<typeof resetPassword>[0]) =>
       resetPassword(data),
-    onSuccess: () => {
+    onSuccess: async () => {
       toast.success('Your password has been updated.')
+      await supabase.auth.signOut()
       queryClient.resetQueries()
       router.invalidate()
       form.reset()
-      // Redirect to home or login after successful reset
       router.navigate({ to: '/' })
     },
     onError: (error) => {
@@ -47,12 +80,10 @@ export default function ResetPassword() {
       confirmPassword: '',
     },
     onSubmit: ({ value }) => {
-      // Validate passwords match
       if (value.password !== value.confirmPassword) {
         toast.error('Passwords do not match.')
         return
       }
-      // Validate password is not empty
       if (!value.password || value.password.length < 6) {
         toast.error('Password must be at least 6 characters.')
         return
@@ -127,13 +158,9 @@ export default function ResetPassword() {
             <button
               className="w-full bg-[#161616] text-white py-2 rounded border border-gray-300 cursor-pointer hover:bg-[#1a1a1a]"
               type="submit"
-              disabled={
-                !canSubmit || isSubmitting || resetPasswordMutation.isPending
-              }
+              disabled={!canSubmit || isSubmitting}
             >
-              {isSubmitting || resetPasswordMutation.isPending
-                ? '...'
-                : 'Submit'}
+              {isSubmitting ? '...' : 'Submit'}
             </button>
           )}
         />
