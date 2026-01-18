@@ -14,16 +14,6 @@ export const Route = createFileRoute('/')({
     }
   },
   component: App,
-  // loader: async () => {
-  //   try {
-  //     const data = await fetchNewsForApp()
-  //     return data
-  //   } catch (error) {
-  //     console.error('Error fetching news: ', error)
-  //     return false
-  //   }
-  // },
-  // staleTime: 300_000,
 })
 
 function App() {

@@ -19,7 +19,6 @@ export default function SignInForm() {
     onSuccess: (response) => {
       if (response?.error) {
         toast.error(response.error)
-        console.log(response)
         return
       }
       toast.success('Sign in Successful')
@@ -92,9 +91,9 @@ export default function SignInForm() {
           )}
         ></form.Subscribe>
       </form>
-      {/* <div className="mt-2 text-sm text-white-500 cursor-pointer hover:underline">
+      <div className="mt-2 text-sm text-white-500 cursor-pointer hover:underline">
         <Link to="/forgotpassword">Forgot Password?</Link>
-      </div> */}
+      </div>
       <div className="mt-2 text-sm text-white-500 cursor-pointer hover:underline">
         <Link to="/signup">Don't have an account? Sign up</Link>
       </div>
