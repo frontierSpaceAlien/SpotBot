@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react'
-import { useRouter } from '@tanstack/react-router'
+import { useBlocker, useRouter } from '@tanstack/react-router'
 import { useForm } from '@tanstack/react-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
-import { createClient } from '@supabase/supabase-js'
 import type { EmailOtpType } from '@supabase/supabase-js'
-import { resetPassword, setSession, verifyOtp } from '@/services/auth.api'
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-)
+import {
+  resetPassword,
+  setSession,
+  signOut,
+  verifyOtp,
+} from '@/services/auth.api'
 
 export default function ResetPassword() {
   const queryClient = useQueryClient()
@@ -19,7 +18,14 @@ export default function ResetPassword() {
   const [isLoading, setIsLoading] = useState(true)
   const { searchParams } = new URL(window.location.href)
   const token_hash = searchParams.get('token_hash') ?? ''
-  const type = searchParams.get('type') ?? ('' as EmailOtpType)
+  const type = searchParams.get('type') as EmailOtpType
+
+  window.addEventListener('beforeunload', async (e) => {
+    if (isValidToken) {
+      console.log('user leaving page: ' + e)
+      await signOut()
+    }
+  })
 
   const setSessionMutation = useMutation({
     mutationFn: (data: Parameters<typeof setSession>[0]) => setSession(data),
@@ -38,11 +44,11 @@ export default function ResetPassword() {
 
   const OtpMutation = useMutation({
     mutationFn: (data: Parameters<typeof verifyOtp>[0]) => verifyOtp(data),
-    onSuccess: (sesh) => {
+    onSuccess: (otp) => {
       setSessionMutation.mutate({
         data: {
-          access_token: sesh?.access_token ?? '',
-          refresh_token: sesh?.refresh_token ?? '',
+          access_token: otp?.access_token ?? '',
+          refresh_token: otp?.refresh_token ?? '',
         },
       })
     },
@@ -62,7 +68,7 @@ export default function ResetPassword() {
       resetPassword(data),
     onSuccess: async () => {
       toast.success('Your password has been updated.')
-      await supabase.auth.signOut()
+      await signOut()
       queryClient.resetQueries()
       router.invalidate()
       form.reset()
