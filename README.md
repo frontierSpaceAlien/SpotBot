@@ -166,6 +166,7 @@ After developing this project, I am satisfied with what I have learned and what 
 ## Roadmap
 
 - [ ] Enable control scheme change - Classic or Modern
+- [ ] Option to change button notation
 - [ ] Profile management
 - [x] Forgot password feature
 - [ ] Add additional tech boxes for more tech
