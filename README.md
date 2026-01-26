@@ -167,6 +167,7 @@ After developing this project, I am satisfied with what I have learned and what 
 
 - [ ] Enable control scheme change - Classic or Modern
 - [ ] Option to change button notation
+- [ ] Revamp dashboard to be more meaningful
 - [ ] Profile management
 - [x] Forgot password feature
 - [ ] Add additional tech boxes for more tech
