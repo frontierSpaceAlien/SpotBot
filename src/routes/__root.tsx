@@ -6,12 +6,12 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Toaster } from 'sonner'
 import appCss from '../styles.css?url'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import NotFound from '@/components/NotFound'
 import { getUser } from '@/services/auth.api'
-import { Toaster } from 'sonner'
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient

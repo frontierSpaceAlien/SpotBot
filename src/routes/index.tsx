@@ -8,7 +8,7 @@ import LatestNews from '@/components/LatestNews'
 import PatchNotes from '@/components/PatchNotes'
 
 export const Route = createFileRoute('/')({
-  beforeLoad: async ({ context }) => {
+  beforeLoad: ({ context }) => {
     if (context.authState.isAuthenticated) {
       throw redirect({ to: '/home' })
     }

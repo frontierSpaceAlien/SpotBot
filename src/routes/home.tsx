@@ -1,6 +1,7 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
 import { Suspense } from 'react'
+import { toast } from 'sonner'
 import CharacterGrid from '@/components/CharacterGrid'
 import Logout from '@/components/Logout'
 import { characterImg } from '@/data/characterImg'
@@ -9,8 +10,9 @@ import LatestNews from '@/components/LatestNews'
 import PatchNotes from '@/components/PatchNotes'
 
 export const Route = createFileRoute('/home')({
-  beforeLoad: async ({ context }) => {
+  beforeLoad: ({ context }) => {
     if (!context.authState.isAuthenticated) {
+      toast.error('You must be logged in to access the home page.')
       throw redirect({ to: '/' })
     }
   },

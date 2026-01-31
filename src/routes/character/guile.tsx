@@ -6,7 +6,7 @@ import { getTech } from '@/services/tech.api'
 
 export const Route = createFileRoute('/character/guile')({
   component: RouteComponent,
-  beforeLoad: async ({ context }) => {
+  beforeLoad: ({ context }) => {
     if (!context.authState.isAuthenticated) {
       throw redirect({ to: '/' })
     }
