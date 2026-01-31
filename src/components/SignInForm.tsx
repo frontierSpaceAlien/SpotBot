@@ -21,10 +21,12 @@ export default function SignInForm() {
         toast.error(response.error)
         return
       }
-      toast.success('Sign in Successful')
-      form.reset()
-      navigate({ to: '/home' })
-      queryClient.resetQueries()
+      if (response) {
+        form.reset()
+        navigate({ to: '/home' })
+        queryClient.resetQueries()
+        toast.success('Sign in Successful')
+      }
     },
   })
 

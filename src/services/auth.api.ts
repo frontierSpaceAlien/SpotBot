@@ -41,6 +41,8 @@ export const signIn = createServerFn()
     if (error) {
       return { error: error.message }
     }
+
+    return true
   })
 
 export const signOut = createServerFn().handler(async () => {
